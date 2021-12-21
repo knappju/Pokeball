@@ -20785,25 +20785,27 @@ void TMR4_DefaultInterruptHandler(void);
 # 59 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/tmr0.h" 1
-# 100 "./mcc_generated_files/tmr0.h"
+# 106 "./mcc_generated_files/tmr0.h"
 void TMR0_Initialize(void);
-# 129 "./mcc_generated_files/tmr0.h"
+# 135 "./mcc_generated_files/tmr0.h"
 void TMR0_StartTimer(void);
-# 161 "./mcc_generated_files/tmr0.h"
+# 167 "./mcc_generated_files/tmr0.h"
 void TMR0_StopTimer(void);
-# 197 "./mcc_generated_files/tmr0.h"
+# 203 "./mcc_generated_files/tmr0.h"
 uint16_t TMR0_ReadTimer(void);
-# 236 "./mcc_generated_files/tmr0.h"
+# 242 "./mcc_generated_files/tmr0.h"
 void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "./mcc_generated_files/tmr0.h"
+# 278 "./mcc_generated_files/tmr0.h"
 void TMR0_Reload(void);
-# 290 "./mcc_generated_files/tmr0.h"
+# 296 "./mcc_generated_files/tmr0.h"
 void TMR0_ISR(void);
-# 309 "./mcc_generated_files/tmr0.h"
+# 314 "./mcc_generated_files/tmr0.h"
+void TMR0_CallBack(void);
+# 332 "./mcc_generated_files/tmr0.h"
  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 327 "./mcc_generated_files/tmr0.h"
+# 350 "./mcc_generated_files/tmr0.h"
 extern void (*TMR0_InterruptHandler)(void);
-# 345 "./mcc_generated_files/tmr0.h"
+# 368 "./mcc_generated_files/tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
 # 60 "./mcc_generated_files/mcc.h" 2
 # 75 "./mcc_generated_files/mcc.h"
@@ -20823,7 +20825,13 @@ void PMD_Initialize(void);
     extern void appHandler();
     extern void msTick();
 # 29 "app.c" 2
-# 38 "app.c"
+# 39 "app.c"
+typedef struct color_struct{
+    uint16_t red;
+    uint16_t green;
+    uint16_t blue;
+}color;
+
 void setRed(uint16_t value);
 void setGreen(uint16_t value);
 void setBlue(uint16_t value);
@@ -20843,20 +20851,21 @@ void appHandler(){
     static uint16_t redValue = 0;
     static uint16_t blueValue = 0;
     static int state = 0;
+# 76 "app.c"
     if(msTicks >= 50){
         msTicks = 0;
 
         switch(state){
             case 0:
-                greenValue += 2;
+                greenValue += 4;
                 redValue = 0;
                 blueValue = 0;
-                if(greenValue >= 100){
+                if(greenValue >= 255){
                     state = 1;
                 }
                 break;
             case 1:
-                greenValue -= 2;
+                greenValue -= 4;
                 redValue = 0;
                 blueValue = 0;
                 if(greenValue <= 0){
@@ -20864,15 +20873,15 @@ void appHandler(){
                 }
                 break;
             case 2:
-                redValue += 2;
+                redValue += 4;
                 greenValue = 0;
                 blueValue = 0;
-                if(redValue >= 100){
+                if(redValue >= 255){
                     state = 3;
                 }
                 break;
             case 3:
-                redValue -= 2;
+                redValue -= 4;
                 greenValue = 0;
                 blueValue = 0;
                 if(redValue <= 0){
@@ -20880,17 +20889,33 @@ void appHandler(){
                 }
                 break;
             case 4:
-                blueValue += 2;
+                blueValue += 4;
                 greenValue = 0;
                 redValue = 0;
-                if(blueValue >= 100){
+                if(blueValue >= 255){
                     state = 5;
                 }
                 break;
             case 5:
-                blueValue -= 2;
+                blueValue -= 4;
                 greenValue = 0;
                 redValue = 0;
+                if(blueValue <= 0){
+                    state = 6;
+                }
+                break;
+            case 6:
+                blueValue += 4;
+                greenValue += 4;
+                redValue += 4;
+                if(blueValue >= 255){
+                    state = 7;
+                }
+                break;
+            case 7:
+                blueValue -= 4;
+                greenValue -= 4;
+                redValue -= 4;
                 if(blueValue <= 0){
                     state = 0;
                 }
@@ -20905,17 +20930,30 @@ void appHandler(){
 void msTick(){
     msTicks++;
 }
-
-
 void setRed(uint16_t value){
-    value = (100 - value) * 10;
+    if(value > 255){
+        value = 255;
+    }else if( value < 0){
+        value = 0;
+    }
+    value = (255 - value) * 4;
     PWM3_LoadDutyValue(value);
 }
 void setGreen(uint16_t value){
-    value = (100 - value) * 10;
+    if(value > 255){
+        value = 255;
+    }else if( value < 0){
+        value = 0;
+    }
+    value = (255 - value) * 4;
     PWM4_LoadDutyValue(value);
 }
 void setBlue(uint16_t value){
-    value = (100 - value) * 10;
+    if(value > 255){
+        value = 255;
+    }else if( value < 0){
+        value = 0;
+    }
+    value = (255 - value) * 4;
     PWM1_LoadDutyValue(value);
 }

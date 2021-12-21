@@ -49,17 +49,17 @@ TMR4_CLC7_OUT 22
 TMR4_CLC8_OUT 23
 TMR4_RESERVED_3 24
 ]
-"44 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"51 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _appInit appInit `(v  1 e 1 0 ]
-"52
+"59
 [v _appHandler appHandler `(v  1 e 1 0 ]
-"116
+"151
 [v _msTick msTick `(v  1 e 1 0 ]
-"121
+"154
 [v _setRed setRed `(v  1 e 1 0 ]
-"125
+"163
 [v _setGreen setGreen `(v  1 e 1 0 ]
-"129
+"172
 [v _setBlue setBlue `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -81,8 +81,6 @@ TMR4_RESERVED_3 24
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul64.c
@@ -117,9 +115,11 @@ TMR4_RESERVED_3 24
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 1 0 ]
 "134
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
-"151
+"149
+[v _TMR0_CallBack TMR0_CallBack `(v  1 e 1 0 ]
+"159
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
-"155
+"163
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
 "64 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/tmr4.c
 [v _TMR4_Initialize TMR4_Initialize `(v  1 e 1 0 ]
@@ -141,7 +141,7 @@ TMR4_RESERVED_3 24
 [v _TMR4_SetInterruptHandler TMR4_SetInterruptHandler `(v  1 e 1 0 ]
 "182
 [v _TMR4_DefaultInterruptHandler TMR4_DefaultInterruptHandler `(v  1 e 1 0 ]
-"42 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"49 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _msTicks msTicks `uo  1 e 8 0 ]
 [s S137 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
@@ -275,41 +275,41 @@ TMR4_RESERVED_3 24
 [v _CCPR1H CCPR1H `VEuc  1 e 1 @4010 ]
 "30073
 [v _CCP1CON CCP1CON `VEuc  1 e 1 @4011 ]
-[s S378 . 1 `uc 1 MODE 1 0 :4:0 
+[s S383 . 1 `uc 1 MODE 1 0 :4:0 
 `uc 1 FMT 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "30110
-[s S384 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S389 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 MODE3 1 0 :1:3 
 ]
-[s S389 . 1 `uc 1 CCP1MODE 1 0 :4:0 
+[s S394 . 1 `uc 1 CCP1MODE 1 0 :4:0 
 `uc 1 CCP1FMT 1 0 :1:4 
 `uc 1 CCP1OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 CCP1EN 1 0 :1:7 
 ]
-[s S395 . 1 `uc 1 CCP1MODE0 1 0 :1:0 
+[s S400 . 1 `uc 1 CCP1MODE0 1 0 :1:0 
 `uc 1 CCP1MODE1 1 0 :1:1 
 `uc 1 CCP1MODE2 1 0 :1:2 
 `uc 1 CCP1MODE3 1 0 :1:3 
 ]
-[s S400 . 1 `uc 1 . 1 0 :7:0 
+[s S405 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[u S403 . 1 `S378 1 . 1 0 `S384 1 . 1 0 `S389 1 . 1 0 `S395 1 . 1 0 `S400 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES403  1 e 1 @4011 ]
-[s S346 . 1 `uc 1 C1TSEL 1 0 :2:0 
+[u S408 . 1 `S383 1 . 1 0 `S389 1 . 1 0 `S394 1 . 1 0 `S400 1 . 1 0 `S405 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES408  1 e 1 @4011 ]
+[s S351 . 1 `uc 1 C1TSEL 1 0 :2:0 
 `uc 1 C2TSEL 1 0 :2:2 
 `uc 1 P3TSEL 1 0 :2:4 
 `uc 1 P4TSEL 1 0 :2:6 
 ]
 "30279
-[s S351 . 1 `uc 1 C1TSEL0 1 0 :1:0 
+[s S356 . 1 `uc 1 C1TSEL0 1 0 :1:0 
 `uc 1 C1TSEL1 1 0 :1:1 
 `uc 1 C2TSEL0 1 0 :1:2 
 `uc 1 C2TSEL1 1 0 :1:3 
@@ -318,8 +318,8 @@ TMR4_RESERVED_3 24
 `uc 1 P4TSEL0 1 0 :1:6 
 `uc 1 P4TSEL1 1 0 :1:7 
 ]
-[u S360 . 1 `S346 1 . 1 0 `S351 1 . 1 0 ]
-[v _CCPTMRSbits CCPTMRSbits `VES360  1 e 1 @4013 ]
+[u S365 . 1 `S351 1 . 1 0 `S356 1 . 1 0 ]
+[v _CCPTMRSbits CCPTMRSbits `VES365  1 e 1 @4013 ]
 "30932
 [v _T4TMR T4TMR `VEuc  1 e 1 @4020 ]
 "30937
@@ -330,16 +330,16 @@ TMR4_RESERVED_3 24
 [v _PR4 PR4 `VEuc  1 e 1 @4021 ]
 "31008
 [v _T4CON T4CON `VEuc  1 e 1 @4022 ]
-[s S659 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S664 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 CKPS 1 0 :3:4 
 `uc 1 ON 1 0 :1:7 
 ]
 "31044
-[s S663 . 1 `uc 1 T4OUTPS 1 0 :4:0 
+[s S668 . 1 `uc 1 T4OUTPS 1 0 :4:0 
 `uc 1 T4CKPS 1 0 :3:4 
 `uc 1 T4ON 1 0 :1:7 
 ]
-[s S667 . 1 `uc 1 T4OUTPS0 1 0 :1:0 
+[s S672 . 1 `uc 1 T4OUTPS0 1 0 :1:0 
 `uc 1 T4OUTPS1 1 0 :1:1 
 `uc 1 T4OUTPS2 1 0 :1:2 
 `uc 1 T4OUTPS3 1 0 :1:3 
@@ -347,7 +347,7 @@ TMR4_RESERVED_3 24
 `uc 1 T4CKPS1 1 0 :1:5 
 `uc 1 T4CKPS2 1 0 :1:6 
 ]
-[s S675 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S680 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
@@ -356,56 +356,56 @@ TMR4_RESERVED_3 24
 `uc 1 CKPS2 1 0 :1:6 
 `uc 1 TMR4ON 1 0 :1:7 
 ]
-[u S684 . 1 `S659 1 . 1 0 `S663 1 . 1 0 `S667 1 . 1 0 `S675 1 . 1 0 ]
-[v _T4CONbits T4CONbits `VES684  1 e 1 @4022 ]
+[u S689 . 1 `S664 1 . 1 0 `S668 1 . 1 0 `S672 1 . 1 0 `S680 1 . 1 0 ]
+[v _T4CONbits T4CONbits `VES689  1 e 1 @4022 ]
 "31154
 [v _T4HLT T4HLT `VEuc  1 e 1 @4023 ]
-[s S549 . 1 `uc 1 MODE 1 0 :5:0 
+[s S554 . 1 `uc 1 MODE 1 0 :5:0 
 `uc 1 CKSYNC 1 0 :1:5 
 `uc 1 CKPOL 1 0 :1:6 
 `uc 1 PSYNC 1 0 :1:7 
 ]
 "31187
-[s S554 . 1 `uc 1 MODE0 1 0 :1:0 
+[s S559 . 1 `uc 1 MODE0 1 0 :1:0 
 `uc 1 MODE1 1 0 :1:1 
 `uc 1 MODE2 1 0 :1:2 
 `uc 1 MODE3 1 0 :1:3 
 `uc 1 MODE4 1 0 :1:4 
 ]
-[s S560 . 1 `uc 1 T4MODE 1 0 :5:0 
+[s S565 . 1 `uc 1 T4MODE 1 0 :5:0 
 `uc 1 T4CKSYNC 1 0 :1:5 
 `uc 1 T4CKPOL 1 0 :1:6 
 `uc 1 T4PSYNC 1 0 :1:7 
 ]
-[s S565 . 1 `uc 1 T4MODE0 1 0 :1:0 
+[s S570 . 1 `uc 1 T4MODE0 1 0 :1:0 
 `uc 1 T4MODE1 1 0 :1:1 
 `uc 1 T4MODE2 1 0 :1:2 
 `uc 1 T4MODE3 1 0 :1:3 
 `uc 1 T4MODE4 1 0 :1:4 
 ]
-[u S571 . 1 `S549 1 . 1 0 `S554 1 . 1 0 `S560 1 . 1 0 `S565 1 . 1 0 ]
-[v _T4HLTbits T4HLTbits `VES571  1 e 1 @4023 ]
+[u S576 . 1 `S554 1 . 1 0 `S559 1 . 1 0 `S565 1 . 1 0 `S570 1 . 1 0 ]
+[v _T4HLTbits T4HLTbits `VES576  1 e 1 @4023 ]
 "31282
 [v _T4CLKCON T4CLKCON `VEuc  1 e 1 @4024 ]
 "31440
 [v _T4RST T4RST `VEuc  1 e 1 @4025 ]
-[s S625 . 1 `uc 1 RSEL 1 0 :5:0 
+[s S630 . 1 `uc 1 RSEL 1 0 :5:0 
 ]
 "31465
-[s S627 . 1 `uc 1 RSEL0 1 0 :1:0 
+[s S632 . 1 `uc 1 RSEL0 1 0 :1:0 
 `uc 1 RSEL1 1 0 :1:1 
 `uc 1 RSEL2 1 0 :1:2 
 `uc 1 RSEL3 1 0 :1:3 
 ]
-[s S632 . 1 `uc 1 T4RSEL 1 0 :5:0 
+[s S637 . 1 `uc 1 T4RSEL 1 0 :5:0 
 ]
-[s S634 . 1 `uc 1 T4RSEL0 1 0 :1:0 
+[s S639 . 1 `uc 1 T4RSEL0 1 0 :1:0 
 `uc 1 T4RSEL1 1 0 :1:1 
 `uc 1 T4RSEL2 1 0 :1:2 
 `uc 1 T4RSEL3 1 0 :1:3 
 ]
-[u S639 . 1 `S625 1 . 1 0 `S627 1 . 1 0 `S632 1 . 1 0 `S634 1 . 1 0 ]
-[v _T4RSTbits T4RSTbits `VES639  1 e 1 @4025 ]
+[u S644 . 1 `S630 1 . 1 0 `S632 1 . 1 0 `S637 1 . 1 0 `S639 1 . 1 0 ]
+[v _T4RSTbits T4RSTbits `VES644  1 e 1 @4025 ]
 "34889
 [v _TMR0L TMR0L `VEuc  1 e 1 @4050 ]
 "35027
@@ -465,29 +465,29 @@ TMR4_RESERVED_3 24
 {
 "81
 } 0
-"44 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"51 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _appInit appInit `(v  1 e 1 0 ]
 {
-"50
+"57
 } 0
-"52
+"59
 [v _appHandler appHandler `(v  1 e 1 0 ]
 {
-"53
+"60
 [v appHandler@greenValue greenValue `us  1 s 2 greenValue ]
-"54
+"61
 [v appHandler@redValue redValue `us  1 s 2 redValue ]
-"55
+"62
 [v appHandler@blueValue blueValue `us  1 s 2 blueValue ]
-"56
+"63
 [v appHandler@state state `i  1 s 2 state ]
-"114
+"149
 } 0
-"121
+"154
 [v _setRed setRed `(v  1 e 1 0 ]
 {
-[v setRed@value value `us  1 p 2 8 ]
-"124
+[v setRed@value value `us  1 p 2 6 ]
+"162
 } 0
 "74 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm3.c
 [v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
@@ -495,11 +495,11 @@ TMR4_RESERVED_3 24
 [v PWM3_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
 "81
 } 0
-"125 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"163 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _setGreen setGreen `(v  1 e 1 0 ]
 {
-[v setGreen@value value `us  1 p 2 8 ]
-"128
+[v setGreen@value value `us  1 p 2 6 ]
+"171
 } 0
 "74 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm4.c
 [v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
@@ -507,21 +507,11 @@ TMR4_RESERVED_3 24
 [v PWM4_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
 "81
 } 0
-"129 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"172 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _setBlue setBlue `(v  1 e 1 0 ]
 {
-[v setBlue@value value `us  1 p 2 8 ]
-"132
-} 0
-"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 6 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 2 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 4 ]
-"53
+[v setBlue@value value `us  1 p 2 4 ]
+"180
 } 0
 "82 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm1.c
 [v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
@@ -560,11 +550,11 @@ TMR4_RESERVED_3 24
 {
 "93
 } 0
-"151
+"159
 [v _TMR0_SetInterruptHandler TMR0_SetInterruptHandler `(v  1 e 1 0 ]
 {
 [v TMR0_SetInterruptHandler@InterruptHandler InterruptHandler `*.37(v  1 p 2 2 ]
-"153
+"161
 } 0
 "58 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm4.c
 [v _PWM4_Initialize PWM4_Initialize `(v  1 e 1 0 ]
@@ -619,15 +609,20 @@ TMR4_RESERVED_3 24
 "134 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 1 0 ]
 {
-"148
+"147
 } 0
-"155
+"149
+[v _TMR0_CallBack TMR0_CallBack `(v  1 e 1 0 ]
+{
+"157
+} 0
+"163
 [v _TMR0_DefaultInterruptHandler TMR0_DefaultInterruptHandler `(v  1 e 1 0 ]
 {
-"158
+"166
 } 0
-"116 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"151 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _msTick msTick `(v  1 e 1 0 ]
 {
-"118
+"153
 } 0

@@ -35,6 +35,13 @@
 // ============================ Local variable declarations
 
 // ============================ Local Function Declarations
+
+typedef struct color_struct{
+    uint16_t red;
+    uint16_t green;
+    uint16_t blue;
+}color;
+
 void setRed(uint16_t value);
 void setGreen(uint16_t value);
 void setBlue(uint16_t value);
@@ -54,20 +61,32 @@ void appHandler(){
     static uint16_t redValue = 0;
     static uint16_t blueValue = 0;
     static int state = 0;
+//******************ERROR STATE STUFF************************
+//    if(msTicks >= 1000){
+//        msTicks = 0;
+//        if(redValue == 0){
+//            redValue = 255;
+//        }
+//        else{
+//            redValue = 0;
+//        }
+//        setRed(redValue);
+//    }
+//******************ERROR STATE STUFF************************
     if(msTicks >= 50){
         msTicks = 0;
         
         switch(state){
             case 0:
-                greenValue += 2;
+                greenValue += 4;
                 redValue = 0;
                 blueValue = 0;
-                if(greenValue >= 100){
+                if(greenValue >= 255){
                     state = 1;
                 }
                 break;
             case 1:
-                greenValue -= 2;
+                greenValue -= 4;
                 redValue = 0;
                 blueValue = 0;
                 if(greenValue <= 0){
@@ -75,15 +94,15 @@ void appHandler(){
                 }
                 break;
             case 2:
-                redValue += 2;
+                redValue += 4;
                 greenValue = 0;
                 blueValue = 0;
-                if(redValue >= 100){
+                if(redValue >= 255){
                     state = 3;
                 }
                 break;
             case 3:
-                redValue -= 2;
+                redValue -= 4;
                 greenValue = 0;
                 blueValue = 0;
                 if(redValue <= 0){
@@ -91,17 +110,33 @@ void appHandler(){
                 }
                 break;
             case 4:
-                blueValue += 2;
+                blueValue += 4;
                 greenValue = 0;
                 redValue = 0;
-                if(blueValue >= 100){
+                if(blueValue >= 255){
                     state = 5;
                 }
                 break;
             case 5:
-                blueValue -= 2;
+                blueValue -= 4;
                 greenValue = 0;
                 redValue = 0;
+                if(blueValue <= 0){
+                    state = 6;
+                }
+                break;
+            case 6:
+                blueValue += 4;
+                greenValue += 4;
+                redValue += 4;
+                if(blueValue >= 255){
+                    state = 7;
+                }
+                break;
+            case 7:
+                blueValue -= 4;
+                greenValue -= 4;
+                redValue -= 4;
                 if(blueValue <= 0){
                     state = 0;
                 }
@@ -116,17 +151,30 @@ void appHandler(){
 void msTick(){
     msTicks++;
 }
-
-
 void setRed(uint16_t value){
-    value = (100 - value) * 10; //invert the value'
+    if(value > 255){
+        value = 255;
+    }else if( value < 0){
+        value = 0;
+    }
+    value = (255 - value) * 4;
     PWM3_LoadDutyValue(value);
 }
 void setGreen(uint16_t value){
-    value = (100 - value) * 10; //invert the value'
+    if(value > 255){
+        value = 255;
+    }else if( value < 0){
+        value = 0;
+    }
+    value = (255 - value) * 4;
     PWM4_LoadDutyValue(value);
 }
 void setBlue(uint16_t value){
-    value = (100 - value) * 10; //invert the value'
+    if(value > 255){
+        value = 255;
+    }else if( value < 0){
+        value = 0;
+    }
+    value = (255 - value) * 4;
     PWM1_LoadDutyValue(value);
 }
