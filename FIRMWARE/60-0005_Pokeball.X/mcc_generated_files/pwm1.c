@@ -1,26 +1,24 @@
 /**
-  Generated Interrupt Manager Source File
+  PWM1 Generated Driver File
 
-  @Company:
+  @Company
     Microchip Technology Inc.
 
-  @File Name:
-    interrupt_manager.c
+  @File Name
+    pwm1.c
 
-  @Summary:
-    This is the Interrupt Manager file generated using PIC10 / PIC12 / PIC16 / PIC18 MCUs
+  @Summary
+    This is the generated driver implementation file for the PWM1 driver using PIC10 / PIC12 / PIC16 / PIC18 MCUs
 
-  @Description:
-    This header file provides implementations for global interrupt handling.
-    For individual peripheral handlers please see the peripheral driver for
-    all modules selected in the GUI.
+  @Description
+    This source file provides implementations for driver APIs for PWM1.
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC18F26Q10
-        Driver Version    :  2.04
+        Driver Version    :  2.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.31 and above or later
-        MPLAB 	          :  MPLAB X 5.45
+        Compiler          :  XC8 2.31 and above
+         MPLAB 	          :  MPLAB X 5.45
 */
 
 /*
@@ -46,38 +44,65 @@
     SOFTWARE.
 */
 
-#include "interrupt_manager.h"
-#include "mcc.h"
+/**
+  Section: Included Files
+*/
 
-void  INTERRUPT_Initialize (void)
+#include <xc.h>
+#include "pwm1.h"
+
+/**
+  Section: Macro Declarations
+*/
+
+#define PWM1_INITIALIZE_DUTY_VALUE    1023
+
+/**
+  Section: PWM Module APIs
+*/
+
+void PWM1_Initialize(void)
 {
-    // Disable Interrupt Priority Vectors (16CXXX Compatibility Mode)
-    INTCONbits.IPEN = 0;
+    // Set the PWM1 to the options selected in the User Interface
+	
+	// MODE PWM; EN enabled; FMT right_aligned; 
+	CCP1CON = 0x8C;    
+	
+	// RH 3; 
+	CCPR1H = 0x03;    
+	
+	// RL 255; 
+	CCPR1L = 0xFF;    
+
+	// Selecting Timer 4
+	CCPTMRSbits.C1TSEL = 0x2;
+    
 }
 
-void __interrupt() INTERRUPT_InterruptManager (void)
+void PWM1_LoadDutyValue(uint16_t dutyValue)
 {
-    // interrupt handler
-    if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
+    dutyValue &= 0x03FF;
+    
+    // Load duty cycle value
+    if(CCP1CONbits.FMT)
     {
-        TMR0_ISR();
+        dutyValue <<= 6;
+        CCPR1H = dutyValue >> 8;
+        CCPR1L = dutyValue;
     }
-    else if(INTCONbits.PEIE == 1)
-    {
-        if(PIE4bits.TMR4IE == 1 && PIR4bits.TMR4IF == 1)
-        {
-            TMR4_ISR();
-        } 
-        else
-        {
-            //Unhandled Interrupt
-        }
-    }      
     else
     {
-        //Unhandled Interrupt
+        CCPR1H = dutyValue >> 8;
+        CCPR1L = dutyValue;
     }
+}
+
+bool PWM1_OutputStatusGet(void)
+{
+    // Returns the output status
+    return(CCP1CONbits.OUT);
 }
 /**
  End of File
 */
+

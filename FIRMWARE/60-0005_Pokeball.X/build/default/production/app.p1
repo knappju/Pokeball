@@ -1,23 +1,30 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F12318 `(v ~T0 @X0 0 tf ]
-"310 ./mcc_generated_files/tmr0.h
-[; ;./mcc_generated_files/tmr0.h: 310:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12318 ]
+[v F12334 `(v ~T0 @X0 0 tf ]
+"309 ./mcc_generated_files/tmr0.h
+[; ;./mcc_generated_files/tmr0.h: 309:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F12334 ]
 "17 ./app.h
-[; ;./app.h: 17:     void msTick();
+[; ;./app.h: 17:     extern void msTick();
 [v _msTick `(v ~T0 @X0 0 e? ]
-[v F12332 `(v ~T0 @X0 0 tf ]
-"26691 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 26691:     struct {
-[s S1165 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1165 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
-"26690
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 26690: typedef union {
-[u S1164 `S1165 1 ]
-[n S1164 . . ]
-"26702
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 26702: extern volatile LATCbits_t LATCbits __attribute__((address(0xF84)));
-[v _LATCbits `VS1164 ~T0 @X0 0 e@3972 ]
+[v F12354 `(v ~T0 @X0 0 tf ]
+"129 ./mcc_generated_files/pwm4.h
+[; ;./mcc_generated_files/pwm4.h: 129:  void PWM4_LoadDutyValue(uint16_t dutyValue);
+[v _PWM4_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"129 ./mcc_generated_files/pwm3.h
+[; ;./mcc_generated_files/pwm3.h: 129:  void PWM3_LoadDutyValue(uint16_t dutyValue);
+[v _PWM3_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"124 ./mcc_generated_files/pwm1.h
+[; ;./mcc_generated_files/pwm1.h: 124: void PWM1_LoadDutyValue(uint16_t dutyValue);
+[v _PWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"39 app.c
+[; ;app.c: 39: void setGreen(uint16_t value);
+[v _setGreen `(v ~T0 @X0 0 ef1`us ]
+"38
+[; ;app.c: 38: void setRed(uint16_t value);
+[v _setRed `(v ~T0 @X0 0 ef1`us ]
+"40
+[; ;app.c: 40: void setBlue(uint16_t value);
+[v _setBlue `(v ~T0 @X0 0 ef1`us ]
 "55 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 55: __asm("CLCIN0PPS equ 0E1Fh");
 [; <" CLCIN0PPS equ 0E1Fh ;# ">
@@ -1626,77 +1633,322 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36638
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 36638: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"4 app.c
-[; ;app.c: 4: uint64_t msTicks = 0;
+"42 app.c
+[; ;app.c: 42: uint64_t msTicks = 0;
 [v _msTicks `uo ~T0 @X0 1 e ]
 [i _msTicks
 -> -> -> 0 `i `o `uo
 ]
-"6
-[; ;app.c: 6: void appInit(){
+"44
+[; ;app.c: 44: void appInit(){
 [v _appInit `(v ~T0 @X0 1 ef ]
 {
 [e :U _appInit ]
 [f ]
-"7
-[; ;app.c: 7:     TMR0_SetInterruptHandler(msTick);
-[e ( _TMR0_SetInterruptHandler (1 -> &U _msTick `*F12332 ]
-"8
-[; ;app.c: 8: }
+"45
+[; ;app.c: 45:     TMR0_SetInterruptHandler(msTick);
+[e ( _TMR0_SetInterruptHandler (1 -> &U _msTick `*F12354 ]
+"47
+[; ;app.c: 47:     PWM4_LoadDutyValue(0xFFFF);
+[e ( _PWM4_LoadDutyValue (1 -> -> 65535 `ui `us ]
+"48
+[; ;app.c: 48:     PWM3_LoadDutyValue(0xFFFF);
+[e ( _PWM3_LoadDutyValue (1 -> -> 65535 `ui `us ]
+"49
+[; ;app.c: 49:     PWM1_LoadDutyValue(0xFFFF);
+[e ( _PWM1_LoadDutyValue (1 -> -> 65535 `ui `us ]
+"50
+[; ;app.c: 50: }
 [e :UE 1684 ]
 }
-"10
-[; ;app.c: 10: void appHandler(){
+"52
+[; ;app.c: 52: void appHandler(){
 [v _appHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _appHandler ]
 [f ]
-"11
-[; ;app.c: 11:     if(msTicks >= 1000){
-[e $ ! >= _msTicks -> -> -> 1000 `i `o `uo 1686  ]
+"53
+[; ;app.c: 53:     static uint16_t greenValue = 0;
+[v F12357 `us ~T0 @X0 1 s greenValue ]
+[i F12357
+-> -> 0 `i `us
+]
+"54
+[; ;app.c: 54:     static uint16_t redValue = 0;
+[v F12358 `us ~T0 @X0 1 s redValue ]
+[i F12358
+-> -> 0 `i `us
+]
+"55
+[; ;app.c: 55:     static uint16_t blueValue = 0;
+[v F12359 `us ~T0 @X0 1 s blueValue ]
+[i F12359
+-> -> 0 `i `us
+]
+"56
+[; ;app.c: 56:     static int state = 0;
+[v F12360 `i ~T0 @X0 1 s state ]
+[i F12360
+-> 0 `i
+]
+"57
+[; ;app.c: 57:     if(msTicks >= 50){
+[e $ ! >= _msTicks -> -> -> 50 `i `o `uo 1686  ]
 {
-"12
-[; ;app.c: 12:         msTicks = 0;
+"58
+[; ;app.c: 58:         msTicks = 0;
 [e = _msTicks -> -> -> 0 `i `o `uo ]
-"13
-[; ;app.c: 13:         do { LATCbits.LATC3 = ~LATCbits.LATC3; } while(0);
+"60
+[; ;app.c: 60:         switch(state){
+[e $U 1688  ]
+{
+"61
+[; ;app.c: 61:             case 0:
 [e :U 1689 ]
+"62
+[; ;app.c: 62:                 greenValue += 2;
+[e =+ F12357 -> -> 2 `i `us ]
+"63
+[; ;app.c: 63:                 redValue = 0;
+[e = F12358 -> -> 0 `i `us ]
+"64
+[; ;app.c: 64:                 blueValue = 0;
+[e = F12359 -> -> 0 `i `us ]
+"65
+[; ;app.c: 65:                 if(greenValue >= 100){
+[e $ ! >= -> F12357 `ui -> -> 100 `i `ui 1690  ]
 {
-[e = . . _LATCbits 0 3 -> ~ -> . . _LATCbits 0 3 `i `uc ]
+"66
+[; ;app.c: 66:                     state = 1;
+[e = F12360 -> 1 `i ]
+"67
+[; ;app.c: 67:                 }
 }
-[e :U 1688 ]
-"14
-[; ;app.c: 14:         do { LATCbits.LATC1 = ~LATCbits.LATC1; } while(0);
-[e :U 1692 ]
-{
-[e = . . _LATCbits 0 1 -> ~ -> . . _LATCbits 0 1 `i `uc ]
-}
+[e :U 1690 ]
+"68
+[; ;app.c: 68:                 break;
+[e $U 1687  ]
+"69
+[; ;app.c: 69:             case 1:
 [e :U 1691 ]
-"15
-[; ;app.c: 15:         do { LATCbits.LATC5 = ~LATCbits.LATC5; } while(0);
-[e :U 1695 ]
+"70
+[; ;app.c: 70:                 greenValue -= 2;
+[e =- F12357 -> -> 2 `i `us ]
+"71
+[; ;app.c: 71:                 redValue = 0;
+[e = F12358 -> -> 0 `i `us ]
+"72
+[; ;app.c: 72:                 blueValue = 0;
+[e = F12359 -> -> 0 `i `us ]
+"73
+[; ;app.c: 73:                 if(greenValue <= 0){
+[e $ ! <= -> F12357 `ui -> -> 0 `i `ui 1692  ]
 {
-[e = . . _LATCbits 0 5 -> ~ -> . . _LATCbits 0 5 `i `uc ]
+"74
+[; ;app.c: 74:                     state = 2;
+[e = F12360 -> 2 `i ]
+"75
+[; ;app.c: 75:                 }
+}
+[e :U 1692 ]
+"76
+[; ;app.c: 76:                 break;
+[e $U 1687  ]
+"77
+[; ;app.c: 77:             case 2:
+[e :U 1693 ]
+"78
+[; ;app.c: 78:                 redValue += 2;
+[e =+ F12358 -> -> 2 `i `us ]
+"79
+[; ;app.c: 79:                 greenValue = 0;
+[e = F12357 -> -> 0 `i `us ]
+"80
+[; ;app.c: 80:                 blueValue = 0;
+[e = F12359 -> -> 0 `i `us ]
+"81
+[; ;app.c: 81:                 if(redValue >= 100){
+[e $ ! >= -> F12358 `ui -> -> 100 `i `ui 1694  ]
+{
+"82
+[; ;app.c: 82:                     state = 3;
+[e = F12360 -> 3 `i ]
+"83
+[; ;app.c: 83:                 }
 }
 [e :U 1694 ]
-"16
-[; ;app.c: 16:     }
+"84
+[; ;app.c: 84:                 break;
+[e $U 1687  ]
+"85
+[; ;app.c: 85:             case 3:
+[e :U 1695 ]
+"86
+[; ;app.c: 86:                 redValue -= 2;
+[e =- F12358 -> -> 2 `i `us ]
+"87
+[; ;app.c: 87:                 greenValue = 0;
+[e = F12357 -> -> 0 `i `us ]
+"88
+[; ;app.c: 88:                 blueValue = 0;
+[e = F12359 -> -> 0 `i `us ]
+"89
+[; ;app.c: 89:                 if(redValue <= 0){
+[e $ ! <= -> F12358 `ui -> -> 0 `i `ui 1696  ]
+{
+"90
+[; ;app.c: 90:                     state = 4;
+[e = F12360 -> 4 `i ]
+"91
+[; ;app.c: 91:                 }
+}
+[e :U 1696 ]
+"92
+[; ;app.c: 92:                 break;
+[e $U 1687  ]
+"93
+[; ;app.c: 93:             case 4:
+[e :U 1697 ]
+"94
+[; ;app.c: 94:                 blueValue += 2;
+[e =+ F12359 -> -> 2 `i `us ]
+"95
+[; ;app.c: 95:                 greenValue = 0;
+[e = F12357 -> -> 0 `i `us ]
+"96
+[; ;app.c: 96:                 redValue = 0;
+[e = F12358 -> -> 0 `i `us ]
+"97
+[; ;app.c: 97:                 if(blueValue >= 100){
+[e $ ! >= -> F12359 `ui -> -> 100 `i `ui 1698  ]
+{
+"98
+[; ;app.c: 98:                     state = 5;
+[e = F12360 -> 5 `i ]
+"99
+[; ;app.c: 99:                 }
+}
+[e :U 1698 ]
+"100
+[; ;app.c: 100:                 break;
+[e $U 1687  ]
+"101
+[; ;app.c: 101:             case 5:
+[e :U 1699 ]
+"102
+[; ;app.c: 102:                 blueValue -= 2;
+[e =- F12359 -> -> 2 `i `us ]
+"103
+[; ;app.c: 103:                 greenValue = 0;
+[e = F12357 -> -> 0 `i `us ]
+"104
+[; ;app.c: 104:                 redValue = 0;
+[e = F12358 -> -> 0 `i `us ]
+"105
+[; ;app.c: 105:                 if(blueValue <= 0){
+[e $ ! <= -> F12359 `ui -> -> 0 `i `ui 1700  ]
+{
+"106
+[; ;app.c: 106:                     state = 0;
+[e = F12360 -> 0 `i ]
+"107
+[; ;app.c: 107:                 }
+}
+[e :U 1700 ]
+"108
+[; ;app.c: 108:                 break;
+[e $U 1687  ]
+"109
+[; ;app.c: 109:         }
+}
+[e $U 1687  ]
+[e :U 1688 ]
+[e [\ F12360 , $ -> 0 `i 1689
+ , $ -> 1 `i 1691
+ , $ -> 2 `i 1693
+ , $ -> 3 `i 1695
+ , $ -> 4 `i 1697
+ , $ -> 5 `i 1699
+ 1687 ]
+[e :U 1687 ]
+"110
+[; ;app.c: 110:         setGreen(greenValue);
+[e ( _setGreen (1 F12357 ]
+"111
+[; ;app.c: 111:         setRed(redValue);
+[e ( _setRed (1 F12358 ]
+"112
+[; ;app.c: 112:         setBlue(blueValue);
+[e ( _setBlue (1 F12359 ]
+"113
+[; ;app.c: 113:     }
 }
 [e :U 1686 ]
-"17
-[; ;app.c: 17: }
+"114
+[; ;app.c: 114: }
 [e :UE 1685 ]
 }
-"19
-[; ;app.c: 19: void msTick(){
+"116
+[; ;app.c: 116: void msTick(){
 [v _msTick `(v ~T0 @X0 1 ef ]
 {
 [e :U _msTick ]
 [f ]
-"20
-[; ;app.c: 20:     msTicks++;
+"117
+[; ;app.c: 117:     msTicks++;
 [e ++ _msTicks -> -> -> 1 `i `o `uo ]
-"21
-[; ;app.c: 21: }
-[e :UE 1696 ]
+"118
+[; ;app.c: 118: }
+[e :UE 1701 ]
+}
+"121
+[; ;app.c: 121: void setRed(uint16_t value){
+[v _setRed `(v ~T0 @X0 1 ef1`us ]
+{
+[e :U _setRed ]
+[v _value `us ~T0 @X0 1 r1 ]
+[f ]
+"122
+[; ;app.c: 122:     value = (100 - value) * 10;
+[e = _value -> * - -> -> 100 `i `ui -> _value `ui -> -> 10 `i `ui `us ]
+"123
+[; ;app.c: 123:     PWM3_LoadDutyValue(value);
+[e ( _PWM3_LoadDutyValue (1 _value ]
+"124
+[; ;app.c: 124: }
+[e :UE 1702 ]
+}
+"125
+[; ;app.c: 125: void setGreen(uint16_t value){
+[v _setGreen `(v ~T0 @X0 1 ef1`us ]
+{
+[e :U _setGreen ]
+[v _value `us ~T0 @X0 1 r1 ]
+[f ]
+"126
+[; ;app.c: 126:     value = (100 - value) * 10;
+[e = _value -> * - -> -> 100 `i `ui -> _value `ui -> -> 10 `i `ui `us ]
+"127
+[; ;app.c: 127:     PWM4_LoadDutyValue(value);
+[e ( _PWM4_LoadDutyValue (1 _value ]
+"128
+[; ;app.c: 128: }
+[e :UE 1703 ]
+}
+"129
+[; ;app.c: 129: void setBlue(uint16_t value){
+[v _setBlue `(v ~T0 @X0 1 ef1`us ]
+{
+[e :U _setBlue ]
+[v _value `us ~T0 @X0 1 r1 ]
+[f ]
+"130
+[; ;app.c: 130:     value = (100 - value) * 10;
+[e = _value -> * - -> -> 100 `i `ui -> _value `ui -> -> 10 `i `ui `us ]
+"131
+[; ;app.c: 131:     PWM1_LoadDutyValue(value);
+[e ( _PWM1_LoadDutyValue (1 _value ]
+"132
+[; ;app.c: 132: }
+[e :UE 1704 ]
 }

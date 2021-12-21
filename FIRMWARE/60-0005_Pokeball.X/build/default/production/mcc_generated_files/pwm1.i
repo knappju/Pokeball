@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/tmr2.c"
+# 1 "mcc_generated_files/pwm1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/tmr2.c" 2
-# 51 "mcc_generated_files/tmr2.c"
+# 1 "mcc_generated_files/pwm1.c" 2
+# 51 "mcc_generated_files/pwm1.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -20486,327 +20486,58 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 2 3
-# 51 "mcc_generated_files/tmr2.c" 2
+# 51 "mcc_generated_files/pwm1.c" 2
 
-# 1 "mcc_generated_files/tmr2.h" 1
-# 55 "mcc_generated_files/tmr2.h"
+# 1 "mcc_generated_files/pwm1.h" 1
+# 56 "mcc_generated_files/pwm1.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdbool.h" 1 3
-# 55 "mcc_generated_files/tmr2.h" 2
-# 79 "mcc_generated_files/tmr2.h"
-typedef enum
-{
-# 89 "mcc_generated_files/tmr2.h"
-   TMR2_ROP_STARTS_TMRON,
-
-
-
-
-   TMR2_ROP_STARTS_TMRON_ERSHIGH,
-
-
-
-
-   TMR2_ROP_STARTS_TMRON_ERSLOW,
-
-
-
-
-   TMR2_ROP_RESETS_ERSBOTHEDGE,
-
-
-
-
-   TMR2_ROP_RESETS_ERSRISINGEDGE,
-
-
-
-
-   TMR2_ROP_RESETS_ERSFALLINGEDGE,
-
-
-
-
-   TMR2_ROP_RESETS_ERSLOW,
-
-
-
-
-   TMR2_ROP_RESETS_ERSHIGH,
-# 135 "mcc_generated_files/tmr2.h"
-   TMR2_OS_STARTS_TMRON,
-
-
-
-
-   TMR2_OS_STARTS_ERSRISINGEDGE ,
-
-
-
-
-   TMR2_OS_STARTS_ERSFALLINGEDGE ,
-
-
-
-
-   TMR2_OS_STARTS_ERSBOTHEDGE,
-
-
-
-
-
-   TMR2_OS_STARTS_ERSFIRSTRISINGEDGE,
-
-
-
-
-
-   TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE,
-
-
-
-
-
-   TMR2_OS_STARTS_ERSRISINGEDGEDETECT,
-
-} TMR2_HLT_MODE;
-# 185 "mcc_generated_files/tmr2.h"
-typedef enum
-{
-
-
-    TMR2_T2INPPS,
-
-
-
-    TMR2_RESERVED,
-
-
-
-    TMR2_T4POSTSCALED,
-
-
-
-    TMR2_T6POSTSCALED,
-
-
-
-    TMR2_CCP1_OUT,
-
-
-
-    TMR2_CCP2_OUT,
-
-
-
-    TMR2_PWM3_OUT,
-
-
-
-    TMR2_PWM4_OUT,
-
-
-
-    TMR2_CMP1_OUT,
-
-
-
-    TMR2_CMP2_OUT,
-
-
-
-    TMR2_ZCD_OUTPUT,
-
-
-
-    TMR2_RESERVED_2,
-
-
-
-    TMR2_UART1_RX_EDGE,
-
-
-
-    TMR2_UART1_TX_EDGE,
-
-
-
-    TMR2_UART2_RX_EDGE,
-
-
-
-    TMR2_UART2_TX_EDGE,
-
-
-
-    TMR2_CLC1_OUT,
-
-
-
-    TMR2_CLC2_OUT,
-
-
-
-    TMR2_CLC3_OUT,
-
-
-
-    TMR2_CLC4_OUT,
-
-
-
-    TMR2_CLC5_OUT,
-
-
-
-    TMR2_CLC6_OUT,
-
-
-
-    TMR2_CLC7_OUT,
-
-
-
-    TMR2_CLC8_OUT,
-
-
-
-    TMR2_RESERVED_3,
-
-
-} TMR2_HLT_EXT_RESET_SOURCE;
-# 330 "mcc_generated_files/tmr2.h"
-void TMR2_Initialize(void);
-# 366 "mcc_generated_files/tmr2.h"
-void TMR2_ModeSet(TMR2_HLT_MODE mode);
-# 401 "mcc_generated_files/tmr2.h"
-void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset);
-# 430 "mcc_generated_files/tmr2.h"
-void TMR2_Start(void);
-# 459 "mcc_generated_files/tmr2.h"
-void TMR2_StartTimer(void);
-# 491 "mcc_generated_files/tmr2.h"
-void TMR2_Stop(void);
-# 523 "mcc_generated_files/tmr2.h"
-void TMR2_StopTimer(void);
-# 558 "mcc_generated_files/tmr2.h"
-uint8_t TMR2_Counter8BitGet(void);
-# 593 "mcc_generated_files/tmr2.h"
-uint8_t TMR2_ReadTimer(void);
-# 632 "mcc_generated_files/tmr2.h"
-void TMR2_Counter8BitSet(uint8_t timerVal);
-# 671 "mcc_generated_files/tmr2.h"
-void TMR2_WriteTimer(uint8_t timerVal);
-# 723 "mcc_generated_files/tmr2.h"
-void TMR2_Period8BitSet(uint8_t periodVal);
-# 775 "mcc_generated_files/tmr2.h"
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 813 "mcc_generated_files/tmr2.h"
-_Bool TMR2_HasOverflowOccured(void);
-# 52 "mcc_generated_files/tmr2.c" 2
-# 62 "mcc_generated_files/tmr2.c"
-void TMR2_Initialize(void)
+# 56 "mcc_generated_files/pwm1.h" 2
+# 97 "mcc_generated_files/pwm1.h"
+void PWM1_Initialize(void);
+# 124 "mcc_generated_files/pwm1.h"
+void PWM1_LoadDutyValue(uint16_t dutyValue);
+# 156 "mcc_generated_files/pwm1.h"
+_Bool PWM1_OutputStatusGet(void);
+# 52 "mcc_generated_files/pwm1.c" 2
+# 64 "mcc_generated_files/pwm1.c"
+void PWM1_Initialize(void)
 {
 
 
 
-    T2CLKCON = 0x01;
+ CCP1CON = 0x8C;
 
 
-    T2HLT = 0x00;
+ CCPR1H = 0x03;
 
 
-    T2RST = 0x00;
+ CCPR1L = 0xFF;
 
 
-    T2PR = 0xAB;
+ CCPTMRSbits.C1TSEL = 0x2;
 
-
-    T2TMR = 0x00;
-
-
-    PIR4bits.TMR2IF = 0;
-
-
-    T2CON = 0x8F;
 }
 
-void TMR2_ModeSet(TMR2_HLT_MODE mode)
+void PWM1_LoadDutyValue(uint16_t dutyValue)
 {
+    dutyValue &= 0x03FF;
 
-    T2HLTbits.MODE = mode;
-}
 
-void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset)
-{
-
-    T2RSTbits.RSEL = reset;
-}
-
-void TMR2_Start(void)
-{
-
-    T2CONbits.TMR2ON = 1;
-}
-
-void TMR2_StartTimer(void)
-{
-    TMR2_Start();
-}
-
-void TMR2_Stop(void)
-{
-
-    T2CONbits.TMR2ON = 0;
-}
-
-void TMR2_StopTimer(void)
-{
-    TMR2_Stop();
-}
-
-uint8_t TMR2_Counter8BitGet(void)
-{
-    uint8_t readVal;
-
-    readVal = TMR2;
-
-    return readVal;
-}
-
-uint8_t TMR2_ReadTimer(void)
-{
-    return TMR2_Counter8BitGet();
-}
-
-void TMR2_Counter8BitSet(uint8_t timerVal)
-{
-
-    TMR2 = timerVal;
-}
-
-void TMR2_WriteTimer(uint8_t timerVal)
-{
-    TMR2_Counter8BitSet(timerVal);
-}
-
-void TMR2_Period8BitSet(uint8_t periodVal)
-{
-   PR2 = periodVal;
-}
-
-void TMR2_LoadPeriodRegister(uint8_t periodVal)
-{
-   TMR2_Period8BitSet(periodVal);
-}
-
-_Bool TMR2_HasOverflowOccured(void)
-{
-
-    _Bool status = PIR4bits.TMR2IF;
-    if(status)
+    if(CCP1CONbits.FMT)
     {
-
-        PIR4bits.TMR2IF = 0;
+        dutyValue <<= 6;
+        CCPR1H = dutyValue >> 8;
+        CCPR1L = dutyValue;
     }
-    return status;
+    else
+    {
+        CCPR1H = dutyValue >> 8;
+        CCPR1L = dutyValue;
+    }
+}
+
+_Bool PWM1_OutputStatusGet(void)
+{
+
+    return(CCP1CONbits.OUT);
 }

@@ -20499,9 +20499,9 @@ unsigned char __t3rd16on(void);
 # 50 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/pin_manager.h" 1
-# 138 "mcc_generated_files/pin_manager.h"
+# 114 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 150 "mcc_generated_files/pin_manager.h"
+# 126 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "mcc_generated_files/mcc.h" 2
 
@@ -20543,218 +20543,247 @@ extern void cputs(const char *);
 # 54 "mcc_generated_files/mcc.h" 2
 
 
-# 1 "mcc_generated_files/tmr2.h" 1
-# 79 "mcc_generated_files/tmr2.h"
-typedef enum
-{
-# 89 "mcc_generated_files/tmr2.h"
-   TMR2_ROP_STARTS_TMRON,
-
-
-
-
-   TMR2_ROP_STARTS_TMRON_ERSHIGH,
-
-
-
-
-   TMR2_ROP_STARTS_TMRON_ERSLOW,
-
-
-
-
-   TMR2_ROP_RESETS_ERSBOTHEDGE,
-
-
-
-
-   TMR2_ROP_RESETS_ERSRISINGEDGE,
-
-
-
-
-   TMR2_ROP_RESETS_ERSFALLINGEDGE,
-
-
-
-
-   TMR2_ROP_RESETS_ERSLOW,
-
-
-
-
-   TMR2_ROP_RESETS_ERSHIGH,
-# 135 "mcc_generated_files/tmr2.h"
-   TMR2_OS_STARTS_TMRON,
-
-
-
-
-   TMR2_OS_STARTS_ERSRISINGEDGE ,
-
-
-
-
-   TMR2_OS_STARTS_ERSFALLINGEDGE ,
-
-
-
-
-   TMR2_OS_STARTS_ERSBOTHEDGE,
-
-
-
-
-
-   TMR2_OS_STARTS_ERSFIRSTRISINGEDGE,
-
-
-
-
-
-   TMR2_OS_STARTS_ERSFIRSTFALLINGEDGE,
-
-
-
-
-
-   TMR2_OS_STARTS_ERSRISINGEDGEDETECT,
-
-} TMR2_HLT_MODE;
-# 185 "mcc_generated_files/tmr2.h"
-typedef enum
-{
-
-
-    TMR2_T2INPPS,
-
-
-
-    TMR2_RESERVED,
-
-
-
-    TMR2_T4POSTSCALED,
-
-
-
-    TMR2_T6POSTSCALED,
-
-
-
-    TMR2_CCP1_OUT,
-
-
-
-    TMR2_CCP2_OUT,
-
-
-
-    TMR2_PWM3_OUT,
-
-
-
-    TMR2_PWM4_OUT,
-
-
-
-    TMR2_CMP1_OUT,
-
-
-
-    TMR2_CMP2_OUT,
-
-
-
-    TMR2_ZCD_OUTPUT,
-
-
-
-    TMR2_RESERVED_2,
-
-
-
-    TMR2_UART1_RX_EDGE,
-
-
-
-    TMR2_UART1_TX_EDGE,
-
-
-
-    TMR2_UART2_RX_EDGE,
-
-
-
-    TMR2_UART2_TX_EDGE,
-
-
-
-    TMR2_CLC1_OUT,
-
-
-
-    TMR2_CLC2_OUT,
-
-
-
-    TMR2_CLC3_OUT,
-
-
-
-    TMR2_CLC4_OUT,
-
-
-
-    TMR2_CLC5_OUT,
-
-
-
-    TMR2_CLC6_OUT,
-
-
-
-    TMR2_CLC7_OUT,
-
-
-
-    TMR2_CLC8_OUT,
-
-
-
-    TMR2_RESERVED_3,
-
-
-} TMR2_HLT_EXT_RESET_SOURCE;
-# 330 "mcc_generated_files/tmr2.h"
-void TMR2_Initialize(void);
-# 366 "mcc_generated_files/tmr2.h"
-void TMR2_ModeSet(TMR2_HLT_MODE mode);
-# 401 "mcc_generated_files/tmr2.h"
-void TMR2_ExtResetSourceSet(TMR2_HLT_EXT_RESET_SOURCE reset);
-# 430 "mcc_generated_files/tmr2.h"
-void TMR2_Start(void);
-# 459 "mcc_generated_files/tmr2.h"
-void TMR2_StartTimer(void);
-# 491 "mcc_generated_files/tmr2.h"
-void TMR2_Stop(void);
-# 523 "mcc_generated_files/tmr2.h"
-void TMR2_StopTimer(void);
-# 558 "mcc_generated_files/tmr2.h"
-uint8_t TMR2_Counter8BitGet(void);
-# 593 "mcc_generated_files/tmr2.h"
-uint8_t TMR2_ReadTimer(void);
-# 632 "mcc_generated_files/tmr2.h"
-void TMR2_Counter8BitSet(uint8_t timerVal);
-# 671 "mcc_generated_files/tmr2.h"
-void TMR2_WriteTimer(uint8_t timerVal);
-# 723 "mcc_generated_files/tmr2.h"
-void TMR2_Period8BitSet(uint8_t periodVal);
-# 775 "mcc_generated_files/tmr2.h"
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 813 "mcc_generated_files/tmr2.h"
-_Bool TMR2_HasOverflowOccured(void);
+# 1 "mcc_generated_files/pwm1.h" 1
+# 97 "mcc_generated_files/pwm1.h"
+void PWM1_Initialize(void);
+# 124 "mcc_generated_files/pwm1.h"
+void PWM1_LoadDutyValue(uint16_t dutyValue);
+# 156 "mcc_generated_files/pwm1.h"
+_Bool PWM1_OutputStatusGet(void);
 # 56 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/pwm3.h" 1
+# 102 "mcc_generated_files/pwm3.h"
+ void PWM3_Initialize(void);
+# 129 "mcc_generated_files/pwm3.h"
+ void PWM3_LoadDutyValue(uint16_t dutyValue);
+# 57 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/tmr4.h" 1
+# 79 "mcc_generated_files/tmr4.h"
+typedef enum
+{
+# 89 "mcc_generated_files/tmr4.h"
+   TMR4_ROP_STARTS_TMRON,
+
+
+
+
+   TMR4_ROP_STARTS_TMRON_ERSHIGH,
+
+
+
+
+   TMR4_ROP_STARTS_TMRON_ERSLOW,
+
+
+
+
+   TMR4_ROP_RESETS_ERSBOTHEDGE,
+
+
+
+
+   TMR4_ROP_RESETS_ERSRISINGEDGE,
+
+
+
+
+   TMR4_ROP_RESETS_ERSFALLINGEDGE,
+
+
+
+
+   TMR4_ROP_RESETS_ERSLOW,
+
+
+
+
+   TMR4_ROP_RESETS_ERSHIGH,
+# 135 "mcc_generated_files/tmr4.h"
+   TMR4_OS_STARTS_TMRON,
+
+
+
+
+   TMR4_OS_STARTS_ERSRISINGEDGE ,
+
+
+
+
+   TMR4_OS_STARTS_ERSFALLINGEDGE ,
+
+
+
+
+   TMR4_OS_STARTS_ERSBOTHEDGE,
+
+
+
+
+
+   TMR4_OS_STARTS_ERSFIRSTRISINGEDGE,
+
+
+
+
+
+   TMR4_OS_STARTS_ERSFIRSTFALLINGEDGE,
+
+
+
+
+
+   TMR4_OS_STARTS_ERSRISINGEDGEDETECT,
+
+} TMR4_HLT_MODE;
+# 185 "mcc_generated_files/tmr4.h"
+typedef enum
+{
+
+
+    TMR4_T4INPPS,
+
+
+
+    TMR4_T2POSTSCALED,
+
+
+
+    TMR4_RESERVED,
+
+
+
+    TMR4_T6POSTSCALED,
+
+
+
+    TMR4_CCP1_OUT,
+
+
+
+    TMR4_CCP2_OUT,
+
+
+
+    TMR4_PWM3_OUT,
+
+
+
+    TMR4_PWM4_OUT,
+
+
+
+    TMR4_CMP1_OUT,
+
+
+
+    TMR4_CMP2_OUT,
+
+
+
+    TMR4_ZCD_OUTPUT,
+
+
+
+    TMR4_RESERVED_2,
+
+
+
+    TMR4_UART1_RX_EDGE,
+
+
+
+    TMR4_UART1_TX_EDGE,
+
+
+
+    TMR4_UART2_RX_EDGE,
+
+
+
+    TMR4_UART2_TX_EDGE,
+
+
+
+    TMR4_CLC1_OUT,
+
+
+
+    TMR4_CLC2_OUT,
+
+
+
+    TMR4_CLC3_OUT,
+
+
+
+    TMR4_CLC4_OUT,
+
+
+
+    TMR4_CLC5_OUT,
+
+
+
+    TMR4_CLC6_OUT,
+
+
+
+    TMR4_CLC7_OUT,
+
+
+
+    TMR4_CLC8_OUT,
+
+
+
+    TMR4_RESERVED_3,
+
+
+} TMR4_HLT_EXT_RESET_SOURCE;
+# 330 "mcc_generated_files/tmr4.h"
+void TMR4_Initialize(void);
+# 366 "mcc_generated_files/tmr4.h"
+void TMR4_ModeSet(TMR4_HLT_MODE mode);
+# 401 "mcc_generated_files/tmr4.h"
+void TMR4_ExtResetSourceSet(TMR4_HLT_EXT_RESET_SOURCE reset);
+# 430 "mcc_generated_files/tmr4.h"
+void TMR4_Start(void);
+# 459 "mcc_generated_files/tmr4.h"
+void TMR4_StartTimer(void);
+# 491 "mcc_generated_files/tmr4.h"
+void TMR4_Stop(void);
+# 523 "mcc_generated_files/tmr4.h"
+void TMR4_StopTimer(void);
+# 558 "mcc_generated_files/tmr4.h"
+uint8_t TMR4_Counter8BitGet(void);
+# 593 "mcc_generated_files/tmr4.h"
+uint8_t TMR4_ReadTimer(void);
+# 632 "mcc_generated_files/tmr4.h"
+void TMR4_Counter8BitSet(uint8_t timerVal);
+# 671 "mcc_generated_files/tmr4.h"
+void TMR4_WriteTimer(uint8_t timerVal);
+# 723 "mcc_generated_files/tmr4.h"
+void TMR4_Period8BitSet(uint8_t periodVal);
+# 775 "mcc_generated_files/tmr4.h"
+void TMR4_LoadPeriodRegister(uint8_t periodVal);
+# 793 "mcc_generated_files/tmr4.h"
+void TMR4_ISR(void);
+# 811 "mcc_generated_files/tmr4.h"
+ void TMR4_SetInterruptHandler(void (* InterruptHandler)(void));
+# 829 "mcc_generated_files/tmr4.h"
+extern void (*TMR4_InterruptHandler)(void);
+# 847 "mcc_generated_files/tmr4.h"
+void TMR4_DefaultInterruptHandler(void);
+# 58 "mcc_generated_files/mcc.h" 2
+
+# 1 "mcc_generated_files/pwm4.h" 1
+# 102 "mcc_generated_files/pwm4.h"
+ void PWM4_Initialize(void);
+# 129 "mcc_generated_files/pwm4.h"
+ void PWM4_LoadDutyValue(uint16_t dutyValue);
+# 59 "mcc_generated_files/mcc.h" 2
 
 # 1 "mcc_generated_files/tmr0.h" 1
 # 100 "mcc_generated_files/tmr0.h"
@@ -20763,26 +20792,26 @@ void TMR0_Initialize(void);
 void TMR0_StartTimer(void);
 # 161 "mcc_generated_files/tmr0.h"
 void TMR0_StopTimer(void);
-# 196 "mcc_generated_files/tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 235 "mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
+# 197 "mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
 # 272 "mcc_generated_files/tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 291 "mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "mcc_generated_files/tmr0.h"
 void TMR0_ISR(void);
-# 310 "mcc_generated_files/tmr0.h"
+# 309 "mcc_generated_files/tmr0.h"
  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 328 "mcc_generated_files/tmr0.h"
+# 327 "mcc_generated_files/tmr0.h"
 extern void (*TMR0_InterruptHandler)(void);
-# 346 "mcc_generated_files/tmr0.h"
+# 345 "mcc_generated_files/tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
-# 57 "mcc_generated_files/mcc.h" 2
-# 72 "mcc_generated_files/mcc.h"
+# 60 "mcc_generated_files/mcc.h" 2
+# 75 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 85 "mcc_generated_files/mcc.h"
+# 88 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 98 "mcc_generated_files/mcc.h"
+# 101 "mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
 # 50 "mcc_generated_files/interrupt_manager.c" 2
 
@@ -20799,6 +20828,17 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager (void)
     if(PIE0bits.TMR0IE == 1 && PIR0bits.TMR0IF == 1)
     {
         TMR0_ISR();
+    }
+    else if(INTCONbits.PEIE == 1)
+    {
+        if(PIE4bits.TMR4IE == 1 && PIR4bits.TMR4IF == 1)
+        {
+            TMR4_ISR();
+        }
+        else
+        {
+
+        }
     }
     else
     {

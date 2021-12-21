@@ -20498,23 +20498,28 @@ void TMR0_Initialize(void);
 void TMR0_StartTimer(void);
 # 161 "mcc_generated_files/tmr0.h"
 void TMR0_StopTimer(void);
-# 196 "mcc_generated_files/tmr0.h"
-uint8_t TMR0_ReadTimer(void);
-# 235 "mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint8_t timerVal);
+# 197 "mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
 # 272 "mcc_generated_files/tmr0.h"
-void TMR0_Reload(uint8_t periodVal);
-# 291 "mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "mcc_generated_files/tmr0.h"
 void TMR0_ISR(void);
-# 310 "mcc_generated_files/tmr0.h"
+# 309 "mcc_generated_files/tmr0.h"
  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 328 "mcc_generated_files/tmr0.h"
+# 327 "mcc_generated_files/tmr0.h"
 extern void (*TMR0_InterruptHandler)(void);
-# 346 "mcc_generated_files/tmr0.h"
+# 345 "mcc_generated_files/tmr0.h"
 void TMR0_DefaultInterruptHandler(void);
 # 52 "mcc_generated_files/tmr0.c" 2
 
 
+
+
+
+
+volatile uint16_t timer0ReloadVal16bit;
 
 
 
@@ -20530,10 +20535,13 @@ void TMR0_Initialize(void)
     T0CON1 = 0x40;
 
 
-    TMR0H = 0xF9;
+    TMR0H = 0xC1;
 
 
-    TMR0L = 0x00;
+    TMR0L = 0x80;
+
+
+    timer0ReloadVal16bit = (TMR0H << 8) | TMR0L;
 
 
     PIR0bits.TMR0IF = 0;
@@ -20545,7 +20553,7 @@ void TMR0_Initialize(void)
     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
 
 
-    T0CON0 = 0x80;
+    T0CON0 = 0x90;
 }
 
 void TMR0_StartTimer(void)
@@ -20560,32 +20568,41 @@ void TMR0_StopTimer(void)
     T0CON0bits.T0EN = 0;
 }
 
-uint8_t TMR0_ReadTimer(void)
+uint16_t TMR0_ReadTimer(void)
 {
-    uint8_t readVal;
+    uint16_t readVal;
+    uint8_t readValLow;
+    uint8_t readValHigh;
 
-
-    readVal = TMR0L;
+    readValLow = TMR0L;
+    readValHigh = TMR0H;
+    readVal = ((uint16_t)readValHigh << 8) + readValLow;
 
     return readVal;
 }
 
-void TMR0_WriteTimer(uint8_t timerVal)
+void TMR0_WriteTimer(uint16_t timerVal)
 {
 
-    TMR0L = timerVal;
- }
+    TMR0H = timerVal >> 8;
+    TMR0L = (uint8_t) timerVal;
+}
 
-void TMR0_Reload(uint8_t periodVal)
+void TMR0_Reload(void)
 {
 
-   TMR0H = periodVal;
+    TMR0H = timer0ReloadVal16bit >> 8;
+    TMR0L = (uint8_t) timer0ReloadVal16bit;
 }
 
 void TMR0_ISR(void)
 {
 
     PIR0bits.TMR0IF = 0;
+
+    TMR0H = timer0ReloadVal16bit >> 8;
+    TMR0L = (uint8_t) timer0ReloadVal16bit;
+
     if(TMR0_InterruptHandler)
     {
         TMR0_InterruptHandler();

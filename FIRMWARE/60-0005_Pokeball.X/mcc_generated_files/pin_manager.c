@@ -59,7 +59,7 @@ void PIN_MANAGER_Initialize(void)
     */
     LATA = 0x00;
     LATB = 0x00;
-    LATC = 0x00;
+    LATC = 0x02;
 
     /**
     TRISx registers
@@ -111,6 +111,10 @@ void PIN_MANAGER_Initialize(void)
 
    
     
+	
+    RC3PPS = 0x07;   //RC3->PWM3:PWM3;    
+    RC1PPS = 0x05;   //RC1->CCP1:CCP1;    
+    RC5PPS = 0x08;   //RC5->PWM4:PWM4;    
 }
   
 void PIN_MANAGER_IOC(void)

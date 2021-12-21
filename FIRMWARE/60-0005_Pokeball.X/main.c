@@ -53,6 +53,7 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
+    TMR4_StartTimer();
     appInit();
     
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
@@ -66,7 +67,7 @@ void main(void)
     //INTERRUPT_GlobalInterruptDisable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();

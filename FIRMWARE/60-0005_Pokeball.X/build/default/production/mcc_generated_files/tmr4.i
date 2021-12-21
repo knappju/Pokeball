@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "mcc_generated_files/tmr4.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-# 44 "main.c"
-# 1 "./mcc_generated_files/mcc.h" 1
-# 49 "./mcc_generated_files/mcc.h"
+# 1 "mcc_generated_files/tmr4.c" 2
+# 51 "mcc_generated_files/tmr4.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -20488,81 +20486,16 @@ __attribute__((__unsupported__("The READTIMER" "0" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc_generated_files/mcc.h" 2
+# 51 "mcc_generated_files/tmr4.c" 2
 
-# 1 "./mcc_generated_files/device_config.h" 1
-# 50 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 114 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 126 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
-# 51 "./mcc_generated_files/mcc.h" 2
-
-
+# 1 "mcc_generated_files/tmr4.h" 1
+# 55 "mcc_generated_files/tmr4.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\stdbool.h" 1 3
-# 53 "./mcc_generated_files/mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\conio.h" 1 3
-
-
-
-
-
-
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\errno.h" 1 3
-# 12 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\errno.h" 3
-extern int errno;
-# 8 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\conio.h" 2 3
-
-# 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\__null.h" 1 3
-# 9 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c99\\conio.h" 2 3
-
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-
-
-extern char * cgets(char *);
-extern void cputs(const char *);
-# 54 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/interrupt_manager.h" 1
-# 110 "./mcc_generated_files/interrupt_manager.h"
-void INTERRUPT_Initialize (void);
-# 55 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pwm1.h" 1
-# 97 "./mcc_generated_files/pwm1.h"
-void PWM1_Initialize(void);
-# 124 "./mcc_generated_files/pwm1.h"
-void PWM1_LoadDutyValue(uint16_t dutyValue);
-# 156 "./mcc_generated_files/pwm1.h"
-_Bool PWM1_OutputStatusGet(void);
-# 56 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pwm3.h" 1
-# 102 "./mcc_generated_files/pwm3.h"
- void PWM3_Initialize(void);
-# 129 "./mcc_generated_files/pwm3.h"
- void PWM3_LoadDutyValue(uint16_t dutyValue);
-# 57 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/tmr4.h" 1
-# 79 "./mcc_generated_files/tmr4.h"
+# 55 "mcc_generated_files/tmr4.h" 2
+# 79 "mcc_generated_files/tmr4.h"
 typedef enum
 {
-# 89 "./mcc_generated_files/tmr4.h"
+# 89 "mcc_generated_files/tmr4.h"
    TMR4_ROP_STARTS_TMRON,
 
 
@@ -20599,7 +20532,7 @@ typedef enum
 
 
    TMR4_ROP_RESETS_ERSHIGH,
-# 135 "./mcc_generated_files/tmr4.h"
+# 135 "mcc_generated_files/tmr4.h"
    TMR4_OS_STARTS_TMRON,
 
 
@@ -20636,7 +20569,7 @@ typedef enum
    TMR4_OS_STARTS_ERSRISINGEDGEDETECT,
 
 } TMR4_HLT_MODE;
-# 185 "./mcc_generated_files/tmr4.h"
+# 185 "mcc_generated_files/tmr4.h"
 typedef enum
 {
 
@@ -20741,121 +20674,172 @@ typedef enum
 
 
 } TMR4_HLT_EXT_RESET_SOURCE;
-# 330 "./mcc_generated_files/tmr4.h"
+# 330 "mcc_generated_files/tmr4.h"
 void TMR4_Initialize(void);
-# 366 "./mcc_generated_files/tmr4.h"
+# 366 "mcc_generated_files/tmr4.h"
 void TMR4_ModeSet(TMR4_HLT_MODE mode);
-# 401 "./mcc_generated_files/tmr4.h"
+# 401 "mcc_generated_files/tmr4.h"
 void TMR4_ExtResetSourceSet(TMR4_HLT_EXT_RESET_SOURCE reset);
-# 430 "./mcc_generated_files/tmr4.h"
+# 430 "mcc_generated_files/tmr4.h"
 void TMR4_Start(void);
-# 459 "./mcc_generated_files/tmr4.h"
+# 459 "mcc_generated_files/tmr4.h"
 void TMR4_StartTimer(void);
-# 491 "./mcc_generated_files/tmr4.h"
+# 491 "mcc_generated_files/tmr4.h"
 void TMR4_Stop(void);
-# 523 "./mcc_generated_files/tmr4.h"
+# 523 "mcc_generated_files/tmr4.h"
 void TMR4_StopTimer(void);
-# 558 "./mcc_generated_files/tmr4.h"
+# 558 "mcc_generated_files/tmr4.h"
 uint8_t TMR4_Counter8BitGet(void);
-# 593 "./mcc_generated_files/tmr4.h"
+# 593 "mcc_generated_files/tmr4.h"
 uint8_t TMR4_ReadTimer(void);
-# 632 "./mcc_generated_files/tmr4.h"
+# 632 "mcc_generated_files/tmr4.h"
 void TMR4_Counter8BitSet(uint8_t timerVal);
-# 671 "./mcc_generated_files/tmr4.h"
+# 671 "mcc_generated_files/tmr4.h"
 void TMR4_WriteTimer(uint8_t timerVal);
-# 723 "./mcc_generated_files/tmr4.h"
+# 723 "mcc_generated_files/tmr4.h"
 void TMR4_Period8BitSet(uint8_t periodVal);
-# 775 "./mcc_generated_files/tmr4.h"
+# 775 "mcc_generated_files/tmr4.h"
 void TMR4_LoadPeriodRegister(uint8_t periodVal);
-# 793 "./mcc_generated_files/tmr4.h"
+# 793 "mcc_generated_files/tmr4.h"
 void TMR4_ISR(void);
-# 811 "./mcc_generated_files/tmr4.h"
+# 811 "mcc_generated_files/tmr4.h"
  void TMR4_SetInterruptHandler(void (* InterruptHandler)(void));
-# 829 "./mcc_generated_files/tmr4.h"
+# 829 "mcc_generated_files/tmr4.h"
 extern void (*TMR4_InterruptHandler)(void);
-# 847 "./mcc_generated_files/tmr4.h"
+# 847 "mcc_generated_files/tmr4.h"
 void TMR4_DefaultInterruptHandler(void);
-# 58 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pwm4.h" 1
-# 102 "./mcc_generated_files/pwm4.h"
- void PWM4_Initialize(void);
-# 129 "./mcc_generated_files/pwm4.h"
- void PWM4_LoadDutyValue(uint16_t dutyValue);
-# 59 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/tmr0.h" 1
-# 100 "./mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-# 129 "./mcc_generated_files/tmr0.h"
-void TMR0_StartTimer(void);
-# 161 "./mcc_generated_files/tmr0.h"
-void TMR0_StopTimer(void);
-# 197 "./mcc_generated_files/tmr0.h"
-uint16_t TMR0_ReadTimer(void);
-# 236 "./mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "./mcc_generated_files/tmr0.h"
-void TMR0_Reload(void);
-# 290 "./mcc_generated_files/tmr0.h"
-void TMR0_ISR(void);
-# 309 "./mcc_generated_files/tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 327 "./mcc_generated_files/tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 345 "./mcc_generated_files/tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
-# 60 "./mcc_generated_files/mcc.h" 2
-# 75 "./mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-# 88 "./mcc_generated_files/mcc.h"
-void OSCILLATOR_Initialize(void);
-# 101 "./mcc_generated_files/mcc.h"
-void PMD_Initialize(void);
-# 44 "main.c" 2
-
-# 1 "./GlobalDefines.h" 1
-# 45 "main.c" 2
-
-# 1 "./app.h" 1
-# 15 "./app.h"
-    extern void appInit();
-    extern void appHandler();
-    extern void msTick();
-# 46 "main.c" 2
+# 52 "mcc_generated_files/tmr4.c" 2
 
 
 
 
 
 
-void main(void)
+void (*TMR4_InterruptHandler)(void);
+
+
+
+
+
+void TMR4_Initialize(void)
 {
 
-    SYSTEM_Initialize();
-    TMR4_StartTimer();
-    appInit();
 
 
+    T4CLKCON = 0x01;
 
 
+    T4HLT = 0x20;
 
 
-    (INTCONbits.GIE = 1);
+    T4RST = 0x00;
 
 
+    T4PR = 0xFF;
 
 
-
-    (INTCONbits.PEIE = 1);
-
+    T4TMR = 0x00;
 
 
+    PIR4bits.TMR4IF = 0;
 
 
+    PIE4bits.TMR4IE = 1;
 
-    while (1)
+
+    TMR4_SetInterruptHandler(TMR4_DefaultInterruptHandler);
+
+
+    T4CON = 0xF0;
+}
+
+void TMR4_ModeSet(TMR4_HLT_MODE mode)
+{
+
+    T4HLTbits.MODE = mode;
+}
+
+void TMR4_ExtResetSourceSet(TMR4_HLT_EXT_RESET_SOURCE reset)
+{
+
+    T4RSTbits.RSEL = reset;
+}
+
+void TMR4_Start(void)
+{
+
+    T4CONbits.TMR4ON = 1;
+}
+
+void TMR4_StartTimer(void)
+{
+    TMR4_Start();
+}
+
+void TMR4_Stop(void)
+{
+
+    T4CONbits.TMR4ON = 0;
+}
+
+void TMR4_StopTimer(void)
+{
+    TMR4_Stop();
+}
+
+uint8_t TMR4_Counter8BitGet(void)
+{
+    uint8_t readVal;
+
+    readVal = TMR4;
+
+    return readVal;
+}
+
+uint8_t TMR4_ReadTimer(void)
+{
+    return TMR4_Counter8BitGet();
+}
+
+void TMR4_Counter8BitSet(uint8_t timerVal)
+{
+
+    TMR4 = timerVal;
+}
+
+void TMR4_WriteTimer(uint8_t timerVal)
+{
+    TMR4_Counter8BitSet(timerVal);
+}
+
+void TMR4_Period8BitSet(uint8_t periodVal)
+{
+   PR4 = periodVal;
+}
+
+void TMR4_LoadPeriodRegister(uint8_t periodVal)
+{
+   TMR4_Period8BitSet(periodVal);
+}
+
+void TMR4_ISR(void)
+{
+
+
+    PIR4bits.TMR4IF = 0;
+
+    if(TMR4_InterruptHandler)
     {
-        appHandler();
+        TMR4_InterruptHandler();
     }
+}
+
+
+void TMR4_SetInterruptHandler(void (* InterruptHandler)(void)){
+    TMR4_InterruptHandler = InterruptHandler;
+}
+
+void TMR4_DefaultInterruptHandler(void){
+
+
 }

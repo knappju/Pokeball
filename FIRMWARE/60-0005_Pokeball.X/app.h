@@ -12,9 +12,9 @@
 extern "C" {
 #endif
 
-    void appInit();
-    void appHandler();
-    void msTick();
+    extern void appInit();
+    extern void appHandler();
+    extern void msTick();
 
 #ifdef	__cplusplus
 }
