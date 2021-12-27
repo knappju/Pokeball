@@ -10,4 +10,5 @@ mcc_generated_files/tmr4.h  \
 mcc_generated_files/pwm4.h  \
 mcc_generated_files/tmr0.h  \
 GlobalDefines.h  \
-app.h 
+app.h  \
+rgbButton.h 

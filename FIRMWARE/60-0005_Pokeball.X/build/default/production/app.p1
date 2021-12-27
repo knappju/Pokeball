@@ -6,7 +6,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17 ./app.h
 [; ;./app.h: 17:     extern void msTick();
 [v _msTick `(v ~T0 @X0 0 e? ]
-[v F12360 `(v ~T0 @X0 0 tf ]
+[v F12381 `(v ~T0 @X0 0 tf ]
 "129 ./mcc_generated_files/pwm4.h
 [; ;./mcc_generated_files/pwm4.h: 129:  void PWM4_LoadDutyValue(uint16_t dutyValue);
 [v _PWM4_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
@@ -16,15 +16,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "124 ./mcc_generated_files/pwm1.h
 [; ;./mcc_generated_files/pwm1.h: 124: void PWM1_LoadDutyValue(uint16_t dutyValue);
 [v _PWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
-"46 app.c
-[; ;app.c: 46: void setGreen(uint16_t value);
-[v _setGreen `(v ~T0 @X0 0 ef1`us ]
+"42 ./rgbButton.h
+[; ;./rgbButton.h: 42:     void rgbButtonHandler();
+[v _rgbButtonHandler `(v ~T0 @X0 0 e? ]
+"44
+[; ;./rgbButton.h: 44:     _Bool getIsButtonPressed();
+[v _getIsButtonPressed `(a ~T0 @X0 0 e? ]
 "45
-[; ;app.c: 45: void setRed(uint16_t value);
-[v _setRed `(v ~T0 @X0 0 ef1`us ]
+[; ;./rgbButton.h: 45:     _Bool getIsButtonChanging();
+[v _getIsButtonChanging `(a ~T0 @X0 0 e? ]
 "47
-[; ;app.c: 47: void setBlue(uint16_t value);
-[v _setBlue `(v ~T0 @X0 0 ef1`us ]
+[; ;./rgbButton.h: 47:     void setColor(uint8_t red,uint8_t green, uint8_t blue);
+[v _setColor `(v ~T0 @X0 0 ef3`uc`uc`uc ]
+"43
+[; ;./rgbButton.h: 43:     void rgbButtonTick();
+[v _rgbButtonTick `(v ~T0 @X0 0 e? ]
 "55 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 55: __asm("CLCIN0PPS equ 0E1Fh");
 [; <" CLCIN0PPS equ 0E1Fh ;# ">
@@ -1633,435 +1639,270 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36638
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 36638: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"49 app.c
-[; ;app.c: 49: uint64_t msTicks = 0;
+"43 app.c
+[; ;app.c: 43: uint64_t msTicks = 0;
 [v _msTicks `uo ~T0 @X0 1 e ]
 [i _msTicks
 -> -> -> 0 `i `o `uo
 ]
-"51
-[; ;app.c: 51: void appInit(){
+"45
+[; ;app.c: 45: void appInit(){
 [v _appInit `(v ~T0 @X0 1 ef ]
 {
 [e :U _appInit ]
 [f ]
-"52
-[; ;app.c: 52:     TMR0_SetInterruptHandler(msTick);
-[e ( _TMR0_SetInterruptHandler (1 -> &U _msTick `*F12360 ]
-"54
-[; ;app.c: 54:     PWM4_LoadDutyValue(0xFFFF);
+"46
+[; ;app.c: 46:     TMR0_SetInterruptHandler(msTick);
+[e ( _TMR0_SetInterruptHandler (1 -> &U _msTick `*F12381 ]
+"48
+[; ;app.c: 48:     PWM4_LoadDutyValue(0xFFFF);
 [e ( _PWM4_LoadDutyValue (1 -> -> 65535 `ui `us ]
-"55
-[; ;app.c: 55:     PWM3_LoadDutyValue(0xFFFF);
+"49
+[; ;app.c: 49:     PWM3_LoadDutyValue(0xFFFF);
 [e ( _PWM3_LoadDutyValue (1 -> -> 65535 `ui `us ]
-"56
-[; ;app.c: 56:     PWM1_LoadDutyValue(0xFFFF);
+"50
+[; ;app.c: 50:     PWM1_LoadDutyValue(0xFFFF);
 [e ( _PWM1_LoadDutyValue (1 -> -> 65535 `ui `us ]
-"57
-[; ;app.c: 57: }
-[e :UE 1685 ]
+"51
+[; ;app.c: 51: }
+[e :UE 1688 ]
 }
-"59
-[; ;app.c: 59: void appHandler(){
+"53
+[; ;app.c: 53: void appHandler(){
 [v _appHandler `(v ~T0 @X0 1 ef ]
 {
 [e :U _appHandler ]
 [f ]
-"60
-[; ;app.c: 60:     static uint16_t greenValue = 0;
-[v F12363 `us ~T0 @X0 1 s greenValue ]
-[i F12363
+"54
+[; ;app.c: 54:     static uint16_t greenValue = 0;
+[v F12384 `us ~T0 @X0 1 s greenValue ]
+[i F12384
 -> -> 0 `i `us
 ]
-"61
-[; ;app.c: 61:     static uint16_t redValue = 0;
-[v F12364 `us ~T0 @X0 1 s redValue ]
-[i F12364
+"55
+[; ;app.c: 55:     static uint16_t redValue = 0;
+[v F12385 `us ~T0 @X0 1 s redValue ]
+[i F12385
 -> -> 0 `i `us
 ]
-"62
-[; ;app.c: 62:     static uint16_t blueValue = 0;
-[v F12365 `us ~T0 @X0 1 s blueValue ]
-[i F12365
+"56
+[; ;app.c: 56:     static uint16_t blueValue = 0;
+[v F12386 `us ~T0 @X0 1 s blueValue ]
+[i F12386
 -> -> 0 `i `us
 ]
-"63
-[; ;app.c: 63:     static int state = 0;
-[v F12366 `i ~T0 @X0 1 s state ]
-[i F12366
+"57
+[; ;app.c: 57:     static int state = 0;
+[v F12387 `i ~T0 @X0 1 s state ]
+[i F12387
 -> 0 `i
 ]
+"70
+[; ;app.c: 70:     rgbButtonHandler();
+[e ( _rgbButtonHandler ..  ]
+"72
+[; ;app.c: 72:     if(getIsButtonPressed() && getIsButtonChanging()){
+[e $ ! && != -> ( _getIsButtonPressed ..  `i -> 0 `i != -> ( _getIsButtonChanging ..  `i -> 0 `i 1690  ]
+{
+"73
+[; ;app.c: 73:         state++;
+[e ++ F12387 -> 1 `i ]
+"74
+[; ;app.c: 74:         if(state > 2){
+[e $ ! > F12387 -> 2 `i 1691  ]
+{
+"75
+[; ;app.c: 75:             state = 0;
+[e = F12387 -> 0 `i ]
 "76
-[; ;app.c: 76:     if(msTicks >= 50){
-[e $ ! >= _msTicks -> -> -> 50 `i `o `uo 1687  ]
-{
-"77
-[; ;app.c: 77:         msTicks = 0;
-[e = _msTicks -> -> -> 0 `i `o `uo ]
-"79
-[; ;app.c: 79:         switch(state){
-[e $U 1689  ]
-{
-"80
-[; ;app.c: 80:             case 0:
-[e :U 1690 ]
-"81
-[; ;app.c: 81:                 greenValue += 4;
-[e =+ F12363 -> -> 4 `i `us ]
-"82
-[; ;app.c: 82:                 redValue = 0;
-[e = F12364 -> -> 0 `i `us ]
-"83
-[; ;app.c: 83:                 blueValue = 0;
-[e = F12365 -> -> 0 `i `us ]
-"84
-[; ;app.c: 84:                 if(greenValue >= 255){
-[e $ ! >= -> F12363 `ui -> -> 255 `i `ui 1691  ]
-{
-"85
-[; ;app.c: 85:                     state = 1;
-[e = F12366 -> 1 `i ]
-"86
-[; ;app.c: 86:                 }
+[; ;app.c: 76:         }
 }
 [e :U 1691 ]
-"87
-[; ;app.c: 87:                 break;
-[e $U 1688  ]
-"88
-[; ;app.c: 88:             case 1:
-[e :U 1692 ]
-"89
-[; ;app.c: 89:                 greenValue -= 4;
-[e =- F12363 -> -> 4 `i `us ]
-"90
-[; ;app.c: 90:                 redValue = 0;
-[e = F12364 -> -> 0 `i `us ]
-"91
-[; ;app.c: 91:                 blueValue = 0;
-[e = F12365 -> -> 0 `i `us ]
-"92
-[; ;app.c: 92:                 if(greenValue <= 0){
-[e $ ! <= -> F12363 `ui -> -> 0 `i `ui 1693  ]
-{
-"93
-[; ;app.c: 93:                     state = 2;
-[e = F12366 -> 2 `i ]
-"94
-[; ;app.c: 94:                 }
+"77
+[; ;app.c: 77:     }
 }
-[e :U 1693 ]
-"95
-[; ;app.c: 95:                 break;
-[e $U 1688  ]
-"96
-[; ;app.c: 96:             case 2:
-[e :U 1694 ]
-"97
-[; ;app.c: 97:                 redValue += 4;
-[e =+ F12364 -> -> 4 `i `us ]
-"98
-[; ;app.c: 98:                 greenValue = 0;
-[e = F12363 -> -> 0 `i `us ]
-"99
-[; ;app.c: 99:                 blueValue = 0;
-[e = F12365 -> -> 0 `i `us ]
-"100
-[; ;app.c: 100:                 if(redValue >= 255){
-[e $ ! >= -> F12364 `ui -> -> 255 `i `ui 1695  ]
+[e :U 1690 ]
+"78
+[; ;app.c: 78:     if(msTicks >= 50){
+[e $ ! >= _msTicks -> -> -> 50 `i `o `uo 1692  ]
 {
-"101
-[; ;app.c: 101:                     state = 3;
-[e = F12366 -> 3 `i ]
-"102
-[; ;app.c: 102:                 }
-}
+"79
+[; ;app.c: 79:         msTicks = 0;
+[e = _msTicks -> -> -> 0 `i `o `uo ]
+"81
+[; ;app.c: 81:         switch(state){
+[e $U 1694  ]
+{
+"82
+[; ;app.c: 82:             case 0:
 [e :U 1695 ]
-"103
-[; ;app.c: 103:                 break;
-[e $U 1688  ]
-"104
-[; ;app.c: 104:             case 3:
+"83
+[; ;app.c: 83:                 setColor(0x00,0x00,0xFF);
+[e ( _setColor (3 , , -> -> 0 `i `uc -> -> 0 `i `uc -> -> 255 `i `uc ]
+"90
+[; ;app.c: 90:                 break;
+[e $U 1693  ]
+"91
+[; ;app.c: 91:             case 1:
 [e :U 1696 ]
-"105
-[; ;app.c: 105:                 redValue -= 4;
-[e =- F12364 -> -> 4 `i `us ]
-"106
-[; ;app.c: 106:                 greenValue = 0;
-[e = F12363 -> -> 0 `i `us ]
-"107
-[; ;app.c: 107:                 blueValue = 0;
-[e = F12365 -> -> 0 `i `us ]
-"108
-[; ;app.c: 108:                 if(redValue <= 0){
-[e $ ! <= -> F12364 `ui -> -> 0 `i `ui 1697  ]
-{
-"109
-[; ;app.c: 109:                     state = 4;
-[e = F12366 -> 4 `i ]
-"110
-[; ;app.c: 110:                 }
-}
+"92
+[; ;app.c: 92:                 setColor(0xFF,0x00,0x00);
+[e ( _setColor (3 , , -> -> 255 `i `uc -> -> 0 `i `uc -> -> 0 `i `uc ]
+"99
+[; ;app.c: 99:                 break;
+[e $U 1693  ]
+"100
+[; ;app.c: 100:             case 2:
 [e :U 1697 ]
-"111
-[; ;app.c: 111:                 break;
-[e $U 1688  ]
-"112
-[; ;app.c: 112:             case 4:
+"101
+[; ;app.c: 101:                 setColor(0x00,0xFF,0x00);
+[e ( _setColor (3 , , -> -> 0 `i `uc -> -> 255 `i `uc -> -> 0 `i `uc ]
+"108
+[; ;app.c: 108:                 break;
+[e $U 1693  ]
+"109
+[; ;app.c: 109:             case 3:
 [e :U 1698 ]
-"113
-[; ;app.c: 113:                 blueValue += 4;
-[e =+ F12365 -> -> 4 `i `us ]
-"114
-[; ;app.c: 114:                 greenValue = 0;
-[e = F12363 -> -> 0 `i `us ]
-"115
-[; ;app.c: 115:                 redValue = 0;
-[e = F12364 -> -> 0 `i `us ]
 "116
-[; ;app.c: 116:                 if(blueValue >= 255){
-[e $ ! >= -> F12365 `ui -> -> 255 `i `ui 1699  ]
-{
+[; ;app.c: 116:                 break;
+[e $U 1693  ]
 "117
-[; ;app.c: 117:                     state = 5;
-[e = F12366 -> 5 `i ]
-"118
-[; ;app.c: 118:                 }
-}
+[; ;app.c: 117:             case 4:
 [e :U 1699 ]
-"119
-[; ;app.c: 119:                 break;
-[e $U 1688  ]
-"120
-[; ;app.c: 120:             case 5:
-[e :U 1700 ]
-"121
-[; ;app.c: 121:                 blueValue -= 4;
-[e =- F12365 -> -> 4 `i `us ]
-"122
-[; ;app.c: 122:                 greenValue = 0;
-[e = F12363 -> -> 0 `i `us ]
-"123
-[; ;app.c: 123:                 redValue = 0;
-[e = F12364 -> -> 0 `i `us ]
 "124
-[; ;app.c: 124:                 if(blueValue <= 0){
-[e $ ! <= -> F12365 `ui -> -> 0 `i `ui 1701  ]
-{
+[; ;app.c: 124:                 break;
+[e $U 1693  ]
 "125
-[; ;app.c: 125:                     state = 6;
-[e = F12366 -> 6 `i ]
-"126
-[; ;app.c: 126:                 }
-}
-[e :U 1701 ]
-"127
-[; ;app.c: 127:                 break;
-[e $U 1688  ]
-"128
-[; ;app.c: 128:             case 6:
-[e :U 1702 ]
-"129
-[; ;app.c: 129:                 blueValue += 4;
-[e =+ F12365 -> -> 4 `i `us ]
-"130
-[; ;app.c: 130:                 greenValue += 4;
-[e =+ F12363 -> -> 4 `i `us ]
-"131
-[; ;app.c: 131:                 redValue += 4;
-[e =+ F12364 -> -> 4 `i `us ]
+[; ;app.c: 125:             case 5:
+[e :U 1700 ]
 "132
-[; ;app.c: 132:                 if(blueValue >= 255){
-[e $ ! >= -> F12365 `ui -> -> 255 `i `ui 1703  ]
-{
+[; ;app.c: 132:                 break;
+[e $U 1693  ]
 "133
-[; ;app.c: 133:                     state = 7;
-[e = F12366 -> 7 `i ]
-"134
-[; ;app.c: 134:                 }
-}
-[e :U 1703 ]
-"135
-[; ;app.c: 135:                 break;
-[e $U 1688  ]
-"136
-[; ;app.c: 136:             case 7:
-[e :U 1704 ]
-"137
-[; ;app.c: 137:                 blueValue -= 4;
-[e =- F12365 -> -> 4 `i `us ]
-"138
-[; ;app.c: 138:                 greenValue -= 4;
-[e =- F12363 -> -> 4 `i `us ]
-"139
-[; ;app.c: 139:                 redValue -= 4;
-[e =- F12364 -> -> 4 `i `us ]
+[; ;app.c: 133:             case 6:
+[e :U 1701 ]
 "140
-[; ;app.c: 140:                 if(blueValue <= 0){
-[e $ ! <= -> F12365 `ui -> -> 0 `i `ui 1705  ]
-{
+[; ;app.c: 140:                 break;
+[e $U 1693  ]
 "141
-[; ;app.c: 141:                     state = 0;
-[e = F12366 -> 0 `i ]
-"142
-[; ;app.c: 142:                 }
-}
-[e :U 1705 ]
-"143
-[; ;app.c: 143:                 break;
-[e $U 1688  ]
-"144
-[; ;app.c: 144:         }
-}
-[e $U 1688  ]
-[e :U 1689 ]
-[e [\ F12366 , $ -> 0 `i 1690
- , $ -> 1 `i 1692
- , $ -> 2 `i 1694
- , $ -> 3 `i 1696
- , $ -> 4 `i 1698
- , $ -> 5 `i 1700
- , $ -> 6 `i 1702
- , $ -> 7 `i 1704
- 1688 ]
-[e :U 1688 ]
-"145
-[; ;app.c: 145:         setGreen(greenValue);
-[e ( _setGreen (1 F12363 ]
-"146
-[; ;app.c: 146:         setRed(redValue);
-[e ( _setRed (1 F12364 ]
-"147
-[; ;app.c: 147:         setBlue(blueValue);
-[e ( _setBlue (1 F12365 ]
+[; ;app.c: 141:             case 7:
+[e :U 1702 ]
 "148
-[; ;app.c: 148:     }
-}
-[e :U 1687 ]
+[; ;app.c: 148:                 break;
+[e $U 1693  ]
 "149
-[; ;app.c: 149: }
-[e :UE 1686 ]
+[; ;app.c: 149:         }
 }
-"151
-[; ;app.c: 151: void msTick(){
+[e $U 1693  ]
+[e :U 1694 ]
+[e [\ F12387 , $ -> 0 `i 1695
+ , $ -> 1 `i 1696
+ , $ -> 2 `i 1697
+ , $ -> 3 `i 1698
+ , $ -> 4 `i 1699
+ , $ -> 5 `i 1700
+ , $ -> 6 `i 1701
+ , $ -> 7 `i 1702
+ 1693 ]
+[e :U 1693 ]
+"153
+[; ;app.c: 153:     }
+}
+[e :U 1692 ]
+"154
+[; ;app.c: 154: }
+[e :UE 1689 ]
+}
+"156
+[; ;app.c: 156: void msTick(){
 [v _msTick `(v ~T0 @X0 1 ef ]
 {
 [e :U _msTick ]
 [f ]
-"152
-[; ;app.c: 152:     msTicks++;
+"157
+[; ;app.c: 157:     rgbButtonTick();
+[e ( _rgbButtonTick ..  ]
+"158
+[; ;app.c: 158:     msTicks++;
 [e ++ _msTicks -> -> -> 1 `i `o `uo ]
-"153
-[; ;app.c: 153: }
-[e :UE 1706 ]
+"159
+[; ;app.c: 159: }
+[e :UE 1703 ]
 }
-"154
-[; ;app.c: 154: void setRed(uint16_t value){
+"160
+[; ;app.c: 160: void setRed(uint16_t value){
 [v _setRed `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _setRed ]
 [v _value `us ~T0 @X0 1 r1 ]
 [f ]
-"155
-[; ;app.c: 155:     if(value > 255){
-[e $ ! > -> _value `ui -> -> 255 `i `ui 1708  ]
-{
-"156
-[; ;app.c: 156:         value = 255;
-[e = _value -> -> 255 `i `us ]
-"157
-[; ;app.c: 157:     }else if( value < 0){
-}
-[e $U 1709  ]
-[e :U 1708 ]
-[e $ ! < -> _value `ui -> -> 0 `i `ui 1710  ]
-{
-"158
-[; ;app.c: 158:         value = 0;
-[e = _value -> -> 0 `i `us ]
-"159
-[; ;app.c: 159:     }
-}
-[e :U 1710 ]
-[e :U 1709 ]
-"160
-[; ;app.c: 160:     value = (255 - value) * 4;
-[e = _value -> * - -> -> 255 `i `ui -> _value `ui -> -> 4 `i `ui `us ]
 "161
-[; ;app.c: 161:     PWM3_LoadDutyValue(value);
-[e ( _PWM3_LoadDutyValue (1 _value ]
+[; ;app.c: 161:     if(value > 255){
+[e $ ! > -> _value `ui -> -> 255 `i `ui 1705  ]
+{
 "162
-[; ;app.c: 162: }
-[e :UE 1707 ]
-}
+[; ;app.c: 162:         value = 255;
+[e = _value -> -> 255 `i `us ]
 "163
-[; ;app.c: 163: void setGreen(uint16_t value){
+[; ;app.c: 163:     }
+}
+[e :U 1705 ]
+"164
+[; ;app.c: 164:     value = (255 - value) * 4;
+[e = _value -> * - -> -> 255 `i `ui -> _value `ui -> -> 4 `i `ui `us ]
+"165
+[; ;app.c: 165:     PWM3_LoadDutyValue(value);
+[e ( _PWM3_LoadDutyValue (1 _value ]
+"166
+[; ;app.c: 166: }
+[e :UE 1704 ]
+}
+"167
+[; ;app.c: 167: void setGreen(uint16_t value){
 [v _setGreen `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _setGreen ]
 [v _value `us ~T0 @X0 1 r1 ]
 [f ]
-"164
-[; ;app.c: 164:     if(value > 255){
-[e $ ! > -> _value `ui -> -> 255 `i `ui 1712  ]
-{
-"165
-[; ;app.c: 165:         value = 255;
-[e = _value -> -> 255 `i `us ]
-"166
-[; ;app.c: 166:     }else if( value < 0){
-}
-[e $U 1713  ]
-[e :U 1712 ]
-[e $ ! < -> _value `ui -> -> 0 `i `ui 1714  ]
-{
-"167
-[; ;app.c: 167:         value = 0;
-[e = _value -> -> 0 `i `us ]
 "168
-[; ;app.c: 168:     }
-}
-[e :U 1714 ]
-[e :U 1713 ]
+[; ;app.c: 168:     if(value > 255){
+[e $ ! > -> _value `ui -> -> 255 `i `ui 1707  ]
+{
 "169
-[; ;app.c: 169:     value = (255 - value) * 4;
-[e = _value -> * - -> -> 255 `i `ui -> _value `ui -> -> 4 `i `ui `us ]
+[; ;app.c: 169:         value = 255;
+[e = _value -> -> 255 `i `us ]
 "170
-[; ;app.c: 170:     PWM4_LoadDutyValue(value);
-[e ( _PWM4_LoadDutyValue (1 _value ]
-"171
-[; ;app.c: 171: }
-[e :UE 1711 ]
+[; ;app.c: 170:     }
 }
+[e :U 1707 ]
+"171
+[; ;app.c: 171:     value = (255 - value) * 4;
+[e = _value -> * - -> -> 255 `i `ui -> _value `ui -> -> 4 `i `ui `us ]
 "172
-[; ;app.c: 172: void setBlue(uint16_t value){
+[; ;app.c: 172:     PWM4_LoadDutyValue(value);
+[e ( _PWM4_LoadDutyValue (1 _value ]
+"173
+[; ;app.c: 173: }
+[e :UE 1706 ]
+}
+"174
+[; ;app.c: 174: void setBlue(uint16_t value){
 [v _setBlue `(v ~T0 @X0 1 ef1`us ]
 {
 [e :U _setBlue ]
 [v _value `us ~T0 @X0 1 r1 ]
 [f ]
-"173
-[; ;app.c: 173:     if(value > 255){
-[e $ ! > -> _value `ui -> -> 255 `i `ui 1716  ]
-{
-"174
-[; ;app.c: 174:         value = 255;
-[e = _value -> -> 255 `i `us ]
 "175
-[; ;app.c: 175:     }else if( value < 0){
-}
-[e $U 1717  ]
-[e :U 1716 ]
-[e $ ! < -> _value `ui -> -> 0 `i `ui 1718  ]
+[; ;app.c: 175:     if(value > 255){
+[e $ ! > -> _value `ui -> -> 255 `i `ui 1709  ]
 {
 "176
-[; ;app.c: 176:         value = 0;
-[e = _value -> -> 0 `i `us ]
+[; ;app.c: 176:         value = 255;
+[e = _value -> -> 255 `i `us ]
 "177
 [; ;app.c: 177:     }
 }
-[e :U 1718 ]
-[e :U 1717 ]
+[e :U 1709 ]
 "178
 [; ;app.c: 178:     value = (255 - value) * 4;
 [e = _value -> * - -> -> 255 `i `ui -> _value `ui -> -> 4 `i `ui `us ]
@@ -2070,5 +1911,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _PWM1_LoadDutyValue (1 _value ]
 "180
 [; ;app.c: 180: }
-[e :UE 1715 ]
+[e :UE 1708 ]
 }

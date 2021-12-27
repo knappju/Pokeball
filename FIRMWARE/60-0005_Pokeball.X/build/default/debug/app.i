@@ -20494,9 +20494,9 @@ unsigned char __t3rd16on(void);
 # 50 "./mcc_generated_files/mcc.h" 2
 
 # 1 "./mcc_generated_files/pin_manager.h" 1
-# 114 "./mcc_generated_files/pin_manager.h"
+# 134 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 126 "./mcc_generated_files/pin_manager.h"
+# 146 "./mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 51 "./mcc_generated_files/mcc.h" 2
 
@@ -20825,17 +20825,44 @@ void PMD_Initialize(void);
     extern void appHandler();
     extern void msTick();
 # 29 "app.c" 2
-# 39 "app.c"
-typedef struct color_struct{
-    uint16_t red;
-    uint16_t green;
-    uint16_t blue;
-}color;
 
+# 1 "./rgbButton.h" 1
+# 18 "./rgbButton.h"
+    struct color_s{
+        uint8_t red;
+        uint8_t green;
+        uint8_t blue;
+    };
+    struct ticks_s{
+        uint32_t buttonPressedTicks;
+        uint32_t debounceTicks;
+        uint32_t colorRefreshTicks;
+    };
+    struct buttonStates_s{
+        _Bool isPressed;
+        _Bool lastIsPressed;
+        _Bool changing;
+    };
+
+    struct colorButton_s{
+        struct buttonStates_s buttonStates;
+        struct ticks_s ticks;
+        struct color_s color;
+    };
+
+
+
+    void rgbButtonHandler();
+    void rgbButtonTick();
+    _Bool getIsButtonPressed();
+    uint64_t getTicksInState();
+    void setColor(uint8_t red,uint8_t green, uint8_t blue);
+    void updateColor();
+# 30 "app.c" 2
+# 40 "app.c"
 void setRed(uint16_t value);
 void setGreen(uint16_t value);
 void setBlue(uint16_t value);
-
 uint64_t msTicks = 0;
 
 void appInit(){
@@ -20851,27 +20878,92 @@ void appHandler(){
     static uint16_t redValue = 0;
     static uint16_t blueValue = 0;
     static int state = 0;
-    if(msTicks >= 1000){
+# 70 "app.c"
+    rgbButtonHandler();
+
+
+    if(msTicks >= 50){
         msTicks = 0;
-        if(redValue = 0){
-            redValue = 255;
+
+        switch(state){
+            case 0:
+                greenValue += 4;
+                redValue = 0;
+                blueValue = 0;
+                if(greenValue >= 255){
+                    state = 1;
+                }
+                break;
+            case 1:
+                greenValue -= 4;
+                redValue = 0;
+                blueValue = 0;
+                if(greenValue <= 0){
+                    state = 2;
+                }
+                break;
+            case 2:
+                redValue += 4;
+                greenValue = 0;
+                blueValue = 0;
+                if(redValue >= 255){
+                    state = 3;
+                }
+                break;
+            case 3:
+                redValue -= 4;
+                greenValue = 0;
+                blueValue = 0;
+                if(redValue <= 0){
+                    state = 4;
+                }
+                break;
+            case 4:
+                blueValue += 4;
+                greenValue = 0;
+                redValue = 0;
+                if(blueValue >= 255){
+                    state = 5;
+                }
+                break;
+            case 5:
+                blueValue -= 4;
+                greenValue = 0;
+                redValue = 0;
+                if(blueValue <= 0){
+                    state = 6;
+                }
+                break;
+            case 6:
+                blueValue += 4;
+                greenValue += 4;
+                redValue += 4;
+                if(blueValue >= 255){
+                    state = 7;
+                }
+                break;
+            case 7:
+                blueValue -= 4;
+                greenValue -= 4;
+                redValue -= 4;
+                if(blueValue <= 0){
+                    state = 0;
+                }
+                break;
         }
-        else{
-            redValue = 0;
-        }
+        setGreen(greenValue);
         setRed(redValue);
+        setBlue(blueValue);
     }
-# 147 "app.c"
 }
 
 void msTick(){
+    rgbButtonTick();
     msTicks++;
 }
 void setRed(uint16_t value){
     if(value > 255){
         value = 255;
-    }else if( value < 0){
-        value = 0;
     }
     value = (255 - value) * 4;
     PWM3_LoadDutyValue(value);
@@ -20879,8 +20971,6 @@ void setRed(uint16_t value){
 void setGreen(uint16_t value){
     if(value > 255){
         value = 255;
-    }else if( value < 0){
-        value = 0;
     }
     value = (255 - value) * 4;
     PWM4_LoadDutyValue(value);
@@ -20888,8 +20978,6 @@ void setGreen(uint16_t value){
 void setBlue(uint16_t value){
     if(value > 255){
         value = 255;
-    }else if( value < 0){
-        value = 0;
     }
     value = (255 - value) * 4;
     PWM1_LoadDutyValue(value);

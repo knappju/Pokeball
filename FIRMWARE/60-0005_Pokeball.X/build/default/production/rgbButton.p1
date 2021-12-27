@@ -1,64 +1,43 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"110 mcc_generated_files/interrupt_manager.h
-[; ;mcc_generated_files/interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
-[v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"101 mcc_generated_files/mcc.h
-[; ;mcc_generated_files/mcc.h: 101: void PMD_Initialize(void);
-[v _PMD_Initialize `(v ~T0 @X0 0 ef ]
-"134 mcc_generated_files/pin_manager.h
-[; ;mcc_generated_files/pin_manager.h: 134: void PIN_MANAGER_Initialize (void);
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"88 mcc_generated_files/mcc.h
-[; ;mcc_generated_files/mcc.h: 88: void OSCILLATOR_Initialize(void);
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"97 mcc_generated_files/pwm1.h
-[; ;mcc_generated_files/pwm1.h: 97: void PWM1_Initialize(void);
-[v _PWM1_Initialize `(v ~T0 @X0 0 ef ]
-"102 mcc_generated_files/pwm4.h
-[; ;mcc_generated_files/pwm4.h: 102:  void PWM4_Initialize(void);
-[v _PWM4_Initialize `(v ~T0 @X0 0 ef ]
-"330 mcc_generated_files/tmr4.h
-[; ;mcc_generated_files/tmr4.h: 330: void TMR4_Initialize(void);
-[v _TMR4_Initialize `(v ~T0 @X0 0 ef ]
-"102 mcc_generated_files/pwm3.h
-[; ;mcc_generated_files/pwm3.h: 102:  void PWM3_Initialize(void);
-[v _PWM3_Initialize `(v ~T0 @X0 0 ef ]
-"106 mcc_generated_files/tmr0.h
-[; ;mcc_generated_files/tmr0.h: 106: void TMR0_Initialize(void);
-[v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"16628 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 16628: extern volatile unsigned char OSCCON1 __attribute__((address(0xED3)));
-[v _OSCCON1 `Vuc ~T0 @X0 0 e@3795 ]
-"16768
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 16768: extern volatile unsigned char OSCCON3 __attribute__((address(0xED5)));
-[v _OSCCON3 `Vuc ~T0 @X0 0 e@3797 ]
-"16920
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 16920: extern volatile unsigned char OSCEN __attribute__((address(0xED7)));
-[v _OSCEN `Vuc ~T0 @X0 0 e@3799 ]
-"17029
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17029: extern volatile unsigned char OSCFRQ __attribute__((address(0xED9)));
-[v _OSCFRQ `Vuc ~T0 @X0 0 e@3801 ]
-"16971
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 16971: extern volatile unsigned char OSCTUNE __attribute__((address(0xED8)));
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@3800 ]
-"17200
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17200: extern volatile unsigned char PMD0 __attribute__((address(0xEDC)));
-[v _PMD0 `Vuc ~T0 @X0 0 e@3804 ]
-"17277
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17277: extern volatile unsigned char PMD1 __attribute__((address(0xEDD)));
-[v _PMD1 `Vuc ~T0 @X0 0 e@3805 ]
-"17341
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17341: extern volatile unsigned char PMD2 __attribute__((address(0xEDE)));
-[v _PMD2 `Vuc ~T0 @X0 0 e@3806 ]
-"17386
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17386: extern volatile unsigned char PMD3 __attribute__((address(0xEDF)));
-[v _PMD3 `Vuc ~T0 @X0 0 e@3807 ]
-"17448
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17448: extern volatile unsigned char PMD4 __attribute__((address(0xEE0)));
-[v _PMD4 `Vuc ~T0 @X0 0 e@3808 ]
-"17501
-[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 17501: extern volatile unsigned char PMD5 __attribute__((address(0xEE1)));
-[v _PMD5 `Vuc ~T0 @X0 0 e@3809 ]
+"28 ./rgbButton.h
+[; ;./rgbButton.h: 28:     struct buttonStates_s{
+[s S1686 `a 1 `a 1 `a 1 ]
+[n S1686 buttonStates_s isPressed lastIsPressed changing ]
+"23
+[; ;./rgbButton.h: 23:     struct ticks_s{
+[s S1685 `ul 1 `ul 1 `ul 1 ]
+[n S1685 ticks_s buttonPressedTicks debounceTicks colorRefreshTicks ]
+"18
+[; ;./rgbButton.h: 18:     struct color_s{
+[s S1684 `uc 1 `uc 1 `uc 1 ]
+[n S1684 color_s red green blue ]
+"34
+[; ;./rgbButton.h: 34:     struct colorButton_s{
+[s S1687 `S1686 1 `S1685 1 `S1684 1 ]
+[n S1687 colorButton_s buttonStates ticks color ]
+"48
+[; ;./rgbButton.h: 48:     void updateColor();
+[v _updateColor `(v ~T0 @X0 0 e? ]
+"27119 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 27119:     struct {
+[s S1179 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1179 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"27118
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 27118: typedef union {
+[u S1178 `S1179 1 ]
+[n S1178 . . ]
+"27130
+[; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 27130: extern volatile PORTAbits_t PORTAbits __attribute__((address(0xF8C)));
+[v _PORTAbits `VS1178 ~T0 @X0 0 e@3980 ]
+"129 ./mcc_generated_files/pwm3.h
+[; ;./mcc_generated_files/pwm3.h: 129:  void PWM3_LoadDutyValue(uint16_t dutyValue);
+[v _PWM3_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"129 ./mcc_generated_files/pwm4.h
+[; ;./mcc_generated_files/pwm4.h: 129:  void PWM4_LoadDutyValue(uint16_t dutyValue);
+[v _PWM4_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"124 ./mcc_generated_files/pwm1.h
+[; ;./mcc_generated_files/pwm1.h: 124: void PWM1_LoadDutyValue(uint16_t dutyValue);
+[v _PWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
 "55 C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 55: __asm("CLCIN0PPS equ 0E1Fh");
 [; <" CLCIN0PPS equ 0E1Fh ;# ">
@@ -1667,99 +1646,207 @@ Version 4.0 HI-TECH Software Intermediate Code
 "36638
 [; ;C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f26q10.h: 36638: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"50 mcc_generated_files/mcc.c
-[; ;mcc_generated_files/mcc.c: 50: void SYSTEM_Initialize(void)
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
+"7 rgbButton.c
+[; ;rgbButton.c: 7: struct colorButton_s cButton;
+[v _cButton `S1687 ~T0 @X0 1 e ]
+"20
+[; ;rgbButton.c: 20: void rgbButtonHandler(){
+[v _rgbButtonHandler `(v ~T0 @X0 1 ef ]
+{
+[e :U _rgbButtonHandler ]
+[f ]
+"21
+[; ;rgbButton.c: 21:     static uint16_t debounceBuffer = 0x0000;
+[v F12375 `us ~T0 @X0 1 s debounceBuffer ]
+[i F12375
+-> -> 0 `i `us
+]
+"24
+[; ;rgbButton.c: 24:     if(cButton.ticks.colorRefreshTicks >= 5){
+[e $ ! >= . . _cButton 1 2 -> -> -> 5 `i `l `ul 1689  ]
+{
+"25
+[; ;rgbButton.c: 25:         cButton.ticks.colorRefreshTicks = 0;
+[e = . . _cButton 1 2 -> -> -> 0 `i `l `ul ]
+"26
+[; ;rgbButton.c: 26:         updateColor();
+[e ( _updateColor ..  ]
+"27
+[; ;rgbButton.c: 27:     }
+}
+[e :U 1689 ]
+"31
+[; ;rgbButton.c: 31:         cButton.ticks.debounceTicks = 0;
+[e = . . _cButton 1 1 -> -> -> 0 `i `l `ul ]
+"32
+[; ;rgbButton.c: 32:         cButton.buttonStates.lastIsPressed = cButton.buttonStates.isPressed;
+[e = . . _cButton 0 1 . . _cButton 0 0 ]
+"34
+[; ;rgbButton.c: 34:         debounceBuffer = (debounceBuffer << 1) | !PORTAbits.RA6 | 0xFFFE;
+[e = F12375 -> | | << -> F12375 `ui -> 1 `i -> -> ! != -> . . _PORTAbits 0 6 `i -> 0 `i `i `ui -> 65534 `ui `us ]
+"36
+[; ;rgbButton.c: 36:         if(debounceBuffer == 0xffff){
+[e $ ! == -> F12375 `ui -> 65535 `ui 1690  ]
+{
+"37
+[; ;rgbButton.c: 37:             cButton.buttonStates.isPressed = 1;
+[e = . . _cButton 0 0 -> -> 1 `i `a ]
+"38
+[; ;rgbButton.c: 38:         }
+}
+[e $U 1691  ]
+"39
+[; ;rgbButton.c: 39:         else{
+[e :U 1690 ]
+{
+"40
+[; ;rgbButton.c: 40:             cButton.buttonStates.isPressed = 0;
+[e = . . _cButton 0 0 -> -> 0 `i `a ]
+"41
+[; ;rgbButton.c: 41:         }
+}
+[e :U 1691 ]
+"42
+[; ;rgbButton.c: 42:         if(cButton.buttonStates.isPressed != cButton.buttonStates.lastIsPressed){
+[e $ ! != -> . . _cButton 0 0 `i -> . . _cButton 0 1 `i 1692  ]
+{
+"43
+[; ;rgbButton.c: 43:             cButton.buttonStates.changing = 1;
+[e = . . _cButton 0 2 -> -> 1 `i `a ]
+"44
+[; ;rgbButton.c: 44:             cButton.ticks.buttonPressedTicks = 0;
+[e = . . _cButton 1 0 -> -> -> 0 `i `l `ul ]
+"45
+[; ;rgbButton.c: 45:         }
+}
+[e $U 1693  ]
+"46
+[; ;rgbButton.c: 46:         else{
+[e :U 1692 ]
+{
+"47
+[; ;rgbButton.c: 47:             cButton.buttonStates.changing = 0;
+[e = . . _cButton 0 2 -> -> 0 `i `a ]
+"48
+[; ;rgbButton.c: 48:         }
+}
+[e :U 1693 ]
 "51
-[; ;mcc_generated_files/mcc.c: 51: {
-{
-[e :U _SYSTEM_Initialize ]
-[f ]
-"52
-[; ;mcc_generated_files/mcc.c: 52:     INTERRUPT_Initialize();
-[e ( _INTERRUPT_Initialize ..  ]
-"53
-[; ;mcc_generated_files/mcc.c: 53:     PMD_Initialize();
-[e ( _PMD_Initialize ..  ]
-"54
-[; ;mcc_generated_files/mcc.c: 54:     PIN_MANAGER_Initialize();
-[e ( _PIN_MANAGER_Initialize ..  ]
-"55
-[; ;mcc_generated_files/mcc.c: 55:     OSCILLATOR_Initialize();
-[e ( _OSCILLATOR_Initialize ..  ]
-"56
-[; ;mcc_generated_files/mcc.c: 56:     PWM1_Initialize();
-[e ( _PWM1_Initialize ..  ]
-"57
-[; ;mcc_generated_files/mcc.c: 57:     PWM4_Initialize();
-[e ( _PWM4_Initialize ..  ]
-"58
-[; ;mcc_generated_files/mcc.c: 58:     TMR4_Initialize();
-[e ( _TMR4_Initialize ..  ]
-"59
-[; ;mcc_generated_files/mcc.c: 59:     PWM3_Initialize();
-[e ( _PWM3_Initialize ..  ]
+[; ;rgbButton.c: 51: }
+[e :UE 1688 ]
+}
 "60
-[; ;mcc_generated_files/mcc.c: 60:     TMR0_Initialize();
-[e ( _TMR0_Initialize ..  ]
+[; ;rgbButton.c: 60: void rgbButtonTick(){
+[v _rgbButtonTick `(v ~T0 @X0 1 ef ]
+{
+[e :U _rgbButtonTick ]
+[f ]
 "61
-[; ;mcc_generated_files/mcc.c: 61: }
-[e :UE 1684 ]
-}
+[; ;rgbButton.c: 61:     cButton.ticks.colorRefreshTicks++;
+[e ++ . . _cButton 1 2 -> -> -> 1 `i `l `ul ]
+"62
+[; ;rgbButton.c: 62:     cButton.ticks.buttonPressedTicks++;
+[e ++ . . _cButton 1 0 -> -> -> 1 `i `l `ul ]
 "63
-[; ;mcc_generated_files/mcc.c: 63: void OSCILLATOR_Initialize(void)
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+[; ;rgbButton.c: 63:     cButton.ticks.debounceTicks++;
+[e ++ . . _cButton 1 1 -> -> -> 1 `i `l `ul ]
 "64
-[; ;mcc_generated_files/mcc.c: 64: {
-{
-[e :U _OSCILLATOR_Initialize ]
-[f ]
-"66
-[; ;mcc_generated_files/mcc.c: 66:     OSCCON1 = 0x60;
-[e = _OSCCON1 -> -> 96 `i `uc ]
-"68
-[; ;mcc_generated_files/mcc.c: 68:     OSCCON3 = 0x00;
-[e = _OSCCON3 -> -> 0 `i `uc ]
-"70
-[; ;mcc_generated_files/mcc.c: 70:     OSCEN = 0x00;
-[e = _OSCEN -> -> 0 `i `uc ]
-"72
-[; ;mcc_generated_files/mcc.c: 72:     OSCFRQ = 0x08;
-[e = _OSCFRQ -> -> 8 `i `uc ]
-"74
-[; ;mcc_generated_files/mcc.c: 74:     OSCTUNE = 0x00;
-[e = _OSCTUNE -> -> 0 `i `uc ]
-"75
-[; ;mcc_generated_files/mcc.c: 75: }
-[e :UE 1685 ]
+[; ;rgbButton.c: 64: }
+[e :UE 1694 ]
 }
-"77
-[; ;mcc_generated_files/mcc.c: 77: void PMD_Initialize(void)
-[v _PMD_Initialize `(v ~T0 @X0 1 ef ]
-"78
-[; ;mcc_generated_files/mcc.c: 78: {
+"73
+[; ;rgbButton.c: 73: _Bool getIsButtonPressed(){
+[v _getIsButtonPressed `(a ~T0 @X0 1 ef ]
 {
-[e :U _PMD_Initialize ]
+[e :U _getIsButtonPressed ]
 [f ]
-"80
-[; ;mcc_generated_files/mcc.c: 80:     PMD0 = 0x00;
-[e = _PMD0 -> -> 0 `i `uc ]
-"82
-[; ;mcc_generated_files/mcc.c: 82:     PMD1 = 0x00;
-[e = _PMD1 -> -> 0 `i `uc ]
+"74
+[; ;rgbButton.c: 74:     return cButton.buttonStates.isPressed;
+[e ) . . _cButton 0 0 ]
+[e $UE 1695  ]
+"75
+[; ;rgbButton.c: 75: }
+[e :UE 1695 ]
+}
 "84
-[; ;mcc_generated_files/mcc.c: 84:     PMD2 = 0x00;
-[e = _PMD2 -> -> 0 `i `uc ]
+[; ;rgbButton.c: 84: _Bool getIsButtonChanging(){
+[v _getIsButtonChanging `(a ~T0 @X0 1 ef ]
+{
+[e :U _getIsButtonChanging ]
+[f ]
+"85
+[; ;rgbButton.c: 85:     return cButton.buttonStates.changing;
+[e ) . . _cButton 0 2 ]
+[e $UE 1696  ]
 "86
-[; ;mcc_generated_files/mcc.c: 86:     PMD3 = 0x00;
-[e = _PMD3 -> -> 0 `i `uc ]
-"88
-[; ;mcc_generated_files/mcc.c: 88:     PMD4 = 0x00;
-[e = _PMD4 -> -> 0 `i `uc ]
-"90
-[; ;mcc_generated_files/mcc.c: 90:     PMD5 = 0x00;
-[e = _PMD5 -> -> 0 `i `uc ]
-"91
-[; ;mcc_generated_files/mcc.c: 91: }
-[e :UE 1686 ]
+[; ;rgbButton.c: 86: }
+[e :UE 1696 ]
+}
+"95
+[; ;rgbButton.c: 95: uint64_t getTicksInState(){
+[v _getTicksInState `(uo ~T0 @X0 1 ef ]
+{
+[e :U _getTicksInState ]
+[f ]
+"96
+[; ;rgbButton.c: 96:     return cButton.ticks.buttonPressedTicks;
+[e ) -> . . _cButton 1 0 `uo ]
+[e $UE 1697  ]
+"97
+[; ;rgbButton.c: 97: }
+[e :UE 1697 ]
+}
+"108
+[; ;rgbButton.c: 108: void setColor(uint8_t red,uint8_t green, uint8_t blue){
+[v _setColor `(v ~T0 @X0 1 ef3`uc`uc`uc ]
+{
+[e :U _setColor ]
+[v _red `uc ~T0 @X0 1 r1 ]
+[v _green `uc ~T0 @X0 1 r2 ]
+[v _blue `uc ~T0 @X0 1 r3 ]
+[f ]
+"109
+[; ;rgbButton.c: 109:     cButton.color.red = red;
+[e = . . _cButton 2 0 _red ]
+"110
+[; ;rgbButton.c: 110:     cButton.color.green = green;
+[e = . . _cButton 2 1 _green ]
+"111
+[; ;rgbButton.c: 111:     cButton.color.blue = blue;
+[e = . . _cButton 2 2 _blue ]
+"112
+[; ;rgbButton.c: 112: }
+[e :UE 1698 ]
+}
+"121
+[; ;rgbButton.c: 121: void updateColor(){
+[v _updateColor `(v ~T0 @X0 1 ef ]
+{
+[e :U _updateColor ]
+[f ]
+"122
+[; ;rgbButton.c: 122:     uint16_t calculatedColorValue = 0x0000;
+[v _calculatedColorValue `us ~T0 @X0 1 a ]
+[e = _calculatedColorValue -> -> 0 `i `us ]
+"124
+[; ;rgbButton.c: 124:     calculatedColorValue = (255 - cButton.color.red) * (1024/256);
+[e = _calculatedColorValue -> * - -> 255 `i -> . . _cButton 2 0 `i / -> 1024 `i -> 256 `i `us ]
+"125
+[; ;rgbButton.c: 125:     PWM3_LoadDutyValue(calculatedColorValue);
+[e ( _PWM3_LoadDutyValue (1 _calculatedColorValue ]
+"127
+[; ;rgbButton.c: 127:     calculatedColorValue = (255 - cButton.color.green) * (1024/256);
+[e = _calculatedColorValue -> * - -> 255 `i -> . . _cButton 2 1 `i / -> 1024 `i -> 256 `i `us ]
+"128
+[; ;rgbButton.c: 128:     PWM4_LoadDutyValue(calculatedColorValue);
+[e ( _PWM4_LoadDutyValue (1 _calculatedColorValue ]
+"130
+[; ;rgbButton.c: 130:     calculatedColorValue = (255 - cButton.color.blue) * (1024/256);
+[e = _calculatedColorValue -> * - -> 255 `i -> . . _cButton 2 2 `i / -> 1024 `i -> 256 `i `us ]
+"131
+[; ;rgbButton.c: 131:     PWM1_LoadDutyValue(calculatedColorValue);
+[e ( _PWM1_LoadDutyValue (1 _calculatedColorValue ]
+"132
+[; ;rgbButton.c: 132: }
+[e :UE 1699 ]
 }

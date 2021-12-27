@@ -27,6 +27,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "GlobalDefines.h"
 #include "app.h"
+#include "rgbButton.h"
 
 // ============================ Local Definitions
 
@@ -36,16 +37,9 @@
 
 // ============================ Local Function Declarations
 
-typedef struct color_struct{
-    uint16_t red;
-    uint16_t green;
-    uint16_t blue;
-}color;
-
 void setRed(uint16_t value);
 void setGreen(uint16_t value);
 void setBlue(uint16_t value);
-
 uint64_t msTicks = 0;
 
 void appInit(){
@@ -73,89 +67,99 @@ void appHandler(){
 //        setRed(redValue);
 //    }
 //******************ERROR STATE STUFF************************
+    rgbButtonHandler();
+    
+    if(getIsButtonPressed() && getIsButtonChanging()){
+        state++;
+        if(state > 2){
+            state = 0;
+        }
+    }
     if(msTicks >= 50){
         msTicks = 0;
         
         switch(state){
             case 0:
-                greenValue += 4;
-                redValue = 0;
-                blueValue = 0;
-                if(greenValue >= 255){
-                    state = 1;
-                }
+                setColor(0x00,0x00,0xFF);
+//                greenValue += 4;
+//                redValue = 0;
+//                blueValue = 0;
+//                if(greenValue >= 255){
+//                    state = 1;
+//                }
                 break;
             case 1:
-                greenValue -= 4;
-                redValue = 0;
-                blueValue = 0;
-                if(greenValue <= 0){
-                    state = 2;
-                }
+                setColor(0xFF,0x00,0x00);
+//                greenValue -= 4;
+//                redValue = 0;
+//                blueValue = 0;
+//                if(greenValue <= 0){
+//                    state = 2;
+//                }
                 break;
             case 2:
-                redValue += 4;
-                greenValue = 0;
-                blueValue = 0;
-                if(redValue >= 255){
-                    state = 3;
-                }
+                setColor(0x00,0xFF,0x00);
+//                redValue += 4;
+//                greenValue = 0;
+//                blueValue = 0;
+//                if(redValue >= 255){
+//                    state = 3;
+//                }
                 break;
             case 3:
-                redValue -= 4;
-                greenValue = 0;
-                blueValue = 0;
-                if(redValue <= 0){
-                    state = 4;
-                }
+//                redValue -= 4;
+//                greenValue = 0;
+//                blueValue = 0;
+//                if(redValue <= 0){
+//                    state = 4;
+//                }
                 break;
             case 4:
-                blueValue += 4;
-                greenValue = 0;
-                redValue = 0;
-                if(blueValue >= 255){
-                    state = 5;
-                }
+//                blueValue += 4;
+//                greenValue = 0;
+//                redValue = 0;
+//                if(blueValue >= 255){
+//                    state = 5;
+//                }
                 break;
             case 5:
-                blueValue -= 4;
-                greenValue = 0;
-                redValue = 0;
-                if(blueValue <= 0){
-                    state = 6;
-                }
+//                blueValue -= 4;
+//                greenValue = 0;
+//                redValue = 0;
+//                if(blueValue <= 0){
+//                    state = 6;
+//                }
                 break;
             case 6:
-                blueValue += 4;
-                greenValue += 4;
-                redValue += 4;
-                if(blueValue >= 255){
-                    state = 7;
-                }
+//                blueValue += 4;
+//                greenValue += 4;
+//                redValue += 4;
+//                if(blueValue >= 255){
+//                    state = 7;
+//                }
                 break;
             case 7:
-                blueValue -= 4;
-                greenValue -= 4;
-                redValue -= 4;
-                if(blueValue <= 0){
-                    state = 0;
-                }
+//                blueValue -= 4;
+//                greenValue -= 4;
+//                redValue -= 4;
+//                if(blueValue <= 0){
+//                    state = 0;
+//                }
                 break;
         }
-        setGreen(greenValue);
-        setRed(redValue);
-        setBlue(blueValue);
+//        setGreen(greenValue);
+//        setRed(redValue);
+//        setBlue(blueValue);
     }
 }
 
 void msTick(){
+    rgbButtonTick();
     msTicks++;
 }
 void setRed(uint16_t value){
     if(value > 255){
         value = 255;
-    }else if( value < 0){
-        value = 0;
     }
     value = (255 - value) * 4;
     PWM3_LoadDutyValue(value);
@@ -163,8 +167,6 @@ void setRed(uint16_t value){
 void setGreen(uint16_t value){
     if(value > 255){
         value = 255;
-    }else if( value < 0){
-        value = 0;
     }
     value = (255 - value) * 4;
     PWM4_LoadDutyValue(value);
@@ -172,8 +174,6 @@ void setGreen(uint16_t value){
 void setBlue(uint16_t value){
     if(value > 255){
         value = 255;
-    }else if( value < 0){
-        value = 0;
     }
     value = (255 - value) * 4;
     PWM1_LoadDutyValue(value);

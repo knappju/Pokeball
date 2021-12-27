@@ -1718,8 +1718,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/pin_manager.c: 75:     ANSELB = 0xFF;
 [e = _ANSELB -> -> 255 `i `uc ]
 "76
-[; ;mcc_generated_files/pin_manager.c: 76:     ANSELA = 0xFF;
-[e = _ANSELA -> -> 255 `i `uc ]
+[; ;mcc_generated_files/pin_manager.c: 76:     ANSELA = 0xBF;
+[e = _ANSELA -> -> 191 `i `uc ]
 "81
 [; ;mcc_generated_files/pin_manager.c: 81:     WPUE = 0x00;
 [e = _WPUE -> -> 0 `i `uc ]

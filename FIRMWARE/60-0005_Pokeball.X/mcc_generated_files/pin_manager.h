@@ -65,6 +65,26 @@
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set CB aliases
+#define CB_TRIS                 TRISAbits.TRISA6
+#define CB_LAT                  LATAbits.LATA6
+#define CB_PORT                 PORTAbits.RA6
+#define CB_WPU                  WPUAbits.WPUA6
+#define CB_OD                   ODCONAbits.ODCA6
+#define CB_ANS                  ANSELAbits.ANSELA6
+#define CB_SetHigh()            do { LATAbits.LATA6 = 1; } while(0)
+#define CB_SetLow()             do { LATAbits.LATA6 = 0; } while(0)
+#define CB_Toggle()             do { LATAbits.LATA6 = ~LATAbits.LATA6; } while(0)
+#define CB_GetValue()           PORTAbits.RA6
+#define CB_SetDigitalInput()    do { TRISAbits.TRISA6 = 1; } while(0)
+#define CB_SetDigitalOutput()   do { TRISAbits.TRISA6 = 0; } while(0)
+#define CB_SetPullup()          do { WPUAbits.WPUA6 = 1; } while(0)
+#define CB_ResetPullup()        do { WPUAbits.WPUA6 = 0; } while(0)
+#define CB_SetPushPull()        do { ODCONAbits.ODCA6 = 0; } while(0)
+#define CB_SetOpenDrain()       do { ODCONAbits.ODCA6 = 1; } while(0)
+#define CB_SetAnalogMode()      do { ANSELAbits.ANSELA6 = 1; } while(0)
+#define CB_SetDigitalMode()     do { ANSELAbits.ANSELA6 = 0; } while(0)
+
 // get/set RC1 procedures
 #define RC1_SetHigh()            do { LATCbits.LATC1 = 1; } while(0)
 #define RC1_SetLow()             do { LATCbits.LATC1 = 0; } while(0)

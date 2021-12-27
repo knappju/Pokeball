@@ -20489,9 +20489,9 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 2 3
 # 54 "mcc_generated_files/pin_manager.h" 2
-# 114 "mcc_generated_files/pin_manager.h"
+# 134 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
-# 126 "mcc_generated_files/pin_manager.h"
+# 146 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_IOC(void);
 # 49 "mcc_generated_files/pin_manager.c" 2
 
@@ -20521,7 +20521,7 @@ void PIN_MANAGER_Initialize(void)
 
     ANSELC = 0xFF;
     ANSELB = 0xFF;
-    ANSELA = 0xFF;
+    ANSELA = 0xBF;
 
 
 

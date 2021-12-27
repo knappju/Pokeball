@@ -1,4 +1,4 @@
-# 1 "app.c"
+# 1 "rgbButton.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "app.c" 2
-# 27 "app.c"
+# 1 "rgbButton.c" 2
+# 1 "./rgbButton.h" 1
+# 14 "./rgbButton.h"
 # 1 "./mcc_generated_files/mcc.h" 1
 # 49 "./mcc_generated_files/mcc.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\xc.h" 1 3
@@ -20814,20 +20815,17 @@ void SYSTEM_Initialize(void);
 void OSCILLATOR_Initialize(void);
 # 101 "./mcc_generated_files/mcc.h"
 void PMD_Initialize(void);
-# 27 "app.c" 2
-
-# 1 "./GlobalDefines.h" 1
-# 28 "app.c" 2
+# 14 "./rgbButton.h" 2
 
 # 1 "./app.h" 1
 # 15 "./app.h"
     extern void appInit();
     extern void appHandler();
     extern void msTick();
-# 29 "app.c" 2
+# 15 "./rgbButton.h" 2
 
-# 1 "./rgbButton.h" 1
-# 18 "./rgbButton.h"
+
+
     struct color_s{
         uint8_t red;
         uint8_t green;
@@ -20855,139 +20853,80 @@ void PMD_Initialize(void);
     void rgbButtonHandler();
     void rgbButtonTick();
     _Bool getIsButtonPressed();
-    _Bool getIsButtonChanging();
     uint64_t getTicksInState();
     void setColor(uint8_t red,uint8_t green, uint8_t blue);
     void updateColor();
-# 30 "app.c" 2
-# 40 "app.c"
-void setRed(uint16_t value);
-void setGreen(uint16_t value);
-void setBlue(uint16_t value);
-uint64_t msTicks = 0;
+# 1 "rgbButton.c" 2
 
-void appInit(){
-    TMR0_SetInterruptHandler(msTick);
 
-    PWM4_LoadDutyValue(0xFFFF);
-    PWM3_LoadDutyValue(0xFFFF);
-    PWM1_LoadDutyValue(0xFFFF);
-}
 
-void appHandler(){
-    static uint16_t greenValue = 0;
-    static uint16_t redValue = 0;
-    static uint16_t blueValue = 0;
-    static int state = 0;
-# 70 "app.c"
-    rgbButtonHandler();
 
-    if(getIsButtonPressed() && getIsButtonChanging()){
-        state++;
-        if(state > 2){
-            state = 0;
+
+
+struct colorButton_s cButton;
+# 20 "rgbButton.c"
+void rgbButtonHandler(){
+    static uint16_t debounceBuffer = 0x0000;
+
+
+    if(cButton.ticks.colorRefreshTicks >= 50){
+        cButton.ticks.colorRefreshTicks = 0;
+
+    }
+
+
+    if(cButton.ticks.debounceTicks >= 1){
+        cButton.ticks.debounceTicks = 0;
+        cButton.buttonStates.lastIsPressed = cButton.buttonStates.isPressed;
+
+        debounceBuffer = (debounceBuffer << 1) | !PORTAbits.RA6 | 0xFFE0;
+
+        if(debounceBuffer == 0xffff){
+            cButton.buttonStates.isPressed = 1;
+        }
+        else{
+            cButton.buttonStates.isPressed = 0;
+        }
+        if(cButton.buttonStates.isPressed != cButton.buttonStates.lastIsPressed){
+            cButton.buttonStates.changing = 1;
+            cButton.ticks.buttonPressedTicks = 0;
+        }
+        else{
+            cButton.buttonStates.changing = 0;
         }
     }
-    if(msTicks >= 50){
-        msTicks = 0;
 
-        switch(state){
-            case 0:
-                setColor(0x00,0x00,0xFF);
-
-
-
-
-
-
-                break;
-            case 1:
-                setColor(0xFF,0x00,0x00);
-
-
-
-
-
-
-                break;
-            case 2:
-                setColor(0x00,0xFF,0x00);
-
-
-
-
-
-
-                break;
-            case 3:
-
-
-
-
-
-
-                break;
-            case 4:
-
-
-
-
-
-
-                break;
-            case 5:
-
-
-
-
-
-
-                break;
-            case 6:
-
-
-
-
-
-
-                break;
-            case 7:
-
-
-
-
-
-
-                break;
-        }
-
-
-
-    }
 }
+# 60 "rgbButton.c"
+void rgbButtonTick(){
+    cButton.ticks.colorRefreshTicks++;
+    cButton.ticks.buttonPressedTicks++;
+    cButton.ticks.debounceTicks++;
+}
+# 73 "rgbButton.c"
+_Bool getIsButtonPressed(){
+    return cButton.buttonStates.isPressed;
+}
+# 84 "rgbButton.c"
+uint64_t getTicksInState(){
+    return cButton.ticks.buttonPressedTicks;
+}
+# 97 "rgbButton.c"
+void setColor(uint8_t red,uint8_t green, uint8_t blue){
+    cButton.color.red = red;
+    cButton.color.green = green;
+    cButton.color.blue = blue;
+}
+# 110 "rgbButton.c"
+void updateColor(){
+    uint16_t calculatedColorValue = 0x0000;
 
-void msTick(){
-    rgbButtonTick();
-    msTicks++;
-}
-void setRed(uint16_t value){
-    if(value > 255){
-        value = 255;
-    }
-    value = (255 - value) * 4;
-    PWM3_LoadDutyValue(value);
-}
-void setGreen(uint16_t value){
-    if(value > 255){
-        value = 255;
-    }
-    value = (255 - value) * 4;
-    PWM4_LoadDutyValue(value);
-}
-void setBlue(uint16_t value){
-    if(value > 255){
-        value = 255;
-    }
-    value = (255 - value) * 4;
-    PWM1_LoadDutyValue(value);
+    calculatedColorValue = (255 - cButton.color.red) * (1024/256);
+    PWM3_LoadDutyValue(calculatedColorValue);
+
+    calculatedColorValue = (255 - cButton.color.green) * (1024/256);
+    PWM4_LoadDutyValue(calculatedColorValue);
+
+    calculatedColorValue = (255 - cButton.color.blue) * (1024/256);
+    PWM1_LoadDutyValue(calculatedColorValue);
 }

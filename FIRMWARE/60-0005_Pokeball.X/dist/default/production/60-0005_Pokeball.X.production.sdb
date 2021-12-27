@@ -49,18 +49,12 @@ TMR4_CLC7_OUT 22
 TMR4_CLC8_OUT 23
 TMR4_RESERVED_3 24
 ]
-"51 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"45 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _appInit appInit `(v  1 e 1 0 ]
-"59
+"53
 [v _appHandler appHandler `(v  1 e 1 0 ]
-"151
+"156
 [v _msTick msTick `(v  1 e 1 0 ]
-"154
-[v _setRed setRed `(v  1 e 1 0 ]
-"163
-[v _setGreen setGreen `(v  1 e 1 0 ]
-"172
-[v _setBlue setBlue `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
 "62 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c99\common\float.c
@@ -141,7 +135,19 @@ TMR4_RESERVED_3 24
 [v _TMR4_SetInterruptHandler TMR4_SetInterruptHandler `(v  1 e 1 0 ]
 "182
 [v _TMR4_DefaultInterruptHandler TMR4_DefaultInterruptHandler `(v  1 e 1 0 ]
-"49 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"20 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\rgbButton.c
+[v _rgbButtonHandler rgbButtonHandler `(v  1 e 1 0 ]
+"60
+[v _rgbButtonTick rgbButtonTick `(v  1 e 1 0 ]
+"73
+[v _getIsButtonPressed getIsButtonPressed `(a  1 e 1 0 ]
+"84
+[v _getIsButtonChanging getIsButtonChanging `(a  1 e 1 0 ]
+"108
+[v _setColor setColor `(v  1 e 1 0 ]
+"121
+[v _updateColor updateColor `(v  1 e 1 0 ]
+"43 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _msTicks msTicks `uo  1 e 8 0 ]
 [s S137 . 1 `uc 1 INT0IE 1 0 :1:0 
 `uc 1 INT1IE 1 0 :1:1 
@@ -257,6 +263,18 @@ TMR4_RESERVED_3 24
 [v _TRISB TRISB `VEuc  1 e 1 @3976 ]
 "26991
 [v _TRISC TRISC `VEuc  1 e 1 @3977 ]
+[s S877 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"27130
+[u S886 . 1 `S877 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES886  1 e 1 @3980 ]
 "29205
 [v _PWM4DCL PWM4DCL `VEuc  1 e 1 @3999 ]
 "29271
@@ -460,46 +478,52 @@ TMR4_RESERVED_3 24
 [v _TMR0_InterruptHandler TMR0_InterruptHandler `*.37(v  1 e 2 0 ]
 "58 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/tmr4.c
 [v _TMR4_InterruptHandler TMR4_InterruptHandler `*.37(v  1 e 2 0 ]
+[s S857 buttonStates_s 3 `a 1 isPressed 1 0 `a 1 lastIsPressed 1 1 `a 1 changing 1 2 ]
+"7 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\rgbButton.c
+[s S861 ticks_s 12 `ul 1 buttonPressedTicks 4 0 `ul 1 debounceTicks 4 4 `ul 1 colorRefreshTicks 4 8 ]
+[s S865 color_s 3 `uc 1 red 1 0 `uc 1 green 1 1 `uc 1 blue 1 2 ]
+[s S869 colorButton_s 18 `S857 1 buttonStates 3 0 `S861 1 ticks 12 3 `S865 1 color 3 15 ]
+[v _cButton cButton `S869  1 e 18 0 ]
 "52 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "81
 } 0
-"51 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"45 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _appInit appInit `(v  1 e 1 0 ]
 {
-"57
+"51
 } 0
-"59
+"53
 [v _appHandler appHandler `(v  1 e 1 0 ]
 {
-"60
-[v appHandler@greenValue greenValue `us  1 s 2 greenValue ]
-"61
-[v appHandler@redValue redValue `us  1 s 2 redValue ]
-"62
-[v appHandler@blueValue blueValue `us  1 s 2 blueValue ]
-"63
+"57
 [v appHandler@state state `i  1 s 2 state ]
-"149
-} 0
 "154
-[v _setRed setRed `(v  1 e 1 0 ]
-{
-[v setRed@value value `us  1 p 2 6 ]
-"162
 } 0
-"74 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm3.c
-[v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
+"108 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\rgbButton.c
+[v _setColor setColor `(v  1 e 1 0 ]
 {
-[v PWM3_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
-"81
+[v setColor@red red `uc  1 a 1 wreg ]
+[v setColor@red red `uc  1 a 1 wreg ]
+[v setColor@green green `uc  1 p 1 2 ]
+[v setColor@blue blue `uc  1 p 1 3 ]
+[v setColor@red red `uc  1 a 1 4 ]
+"112
 } 0
-"163 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
-[v _setGreen setGreen `(v  1 e 1 0 ]
+"20
+[v _rgbButtonHandler rgbButtonHandler `(v  1 e 1 0 ]
 {
-[v setGreen@value value `us  1 p 2 6 ]
-"171
+"21
+[v rgbButtonHandler@debounceBuffer debounceBuffer `us  1 s 2 debounceBuffer ]
+"51
+} 0
+"121
+[v _updateColor updateColor `(v  1 e 1 0 ]
+{
+"122
+[v updateColor@calculatedColorValue calculatedColorValue `us  1 a 2 7 ]
+"132
 } 0
 "74 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm4.c
 [v _PWM4_LoadDutyValue PWM4_LoadDutyValue `(v  1 e 1 0 ]
@@ -507,17 +531,27 @@ TMR4_RESERVED_3 24
 [v PWM4_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
 "81
 } 0
-"172 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
-[v _setBlue setBlue `(v  1 e 1 0 ]
+"74 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm3.c
+[v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
 {
-[v setBlue@value value `us  1 p 2 4 ]
-"180
+[v PWM3_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
+"81
 } 0
 "82 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/pwm1.c
 [v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
 {
 [v PWM1_LoadDutyValue@dutyValue dutyValue `us  1 p 2 2 ]
 "98
+} 0
+"73 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\rgbButton.c
+[v _getIsButtonPressed getIsButtonPressed `(a  1 e 1 0 ]
+{
+"75
+} 0
+"84
+[v _getIsButtonChanging getIsButtonChanging `(a  1 e 1 0 ]
+{
+"86
 } 0
 "114 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\mcc_generated_files/tmr4.c
 [v _TMR4_StartTimer TMR4_StartTimer `(v  1 e 1 0 ]
@@ -621,8 +655,13 @@ TMR4_RESERVED_3 24
 {
 "166
 } 0
-"151 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
+"156 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\app.c
 [v _msTick msTick `(v  1 e 1 0 ]
 {
-"153
+"159
+} 0
+"60 C:\Users\JustinKnapp\MPLABXProjects\Pokeball\FIRMWARE\60-0005_Pokeball.X\rgbButton.c
+[v _rgbButtonTick rgbButtonTick `(v  1 e 1 0 ]
+{
+"64
 } 0
