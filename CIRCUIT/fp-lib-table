@@ -1,0 +1,5 @@
+(fp_lib_table
+  (lib (name PIC18F26Q10-I_SP)(type KiCad)(uri "Z:/Engineering/Projects/KiCAD Libraries/Processors/ul_PIC18F26Q10-I-SP/KiCAD/2021-10-18_16-48-40/footprints.pretty")(options "")(descr ""))
+  (lib (name MIC5209-3-3YS-TR)(type KiCad)(uri "Z:/Engineering/Projects/KiCAD Libraries/Regulators/ul_MIC5209-3-3YS-TR/KiCAD/2021-10-18_17-29-51/footprints.pretty")(options "")(descr ""))
+  (lib (name AP2161SG-13)(type KiCad)(uri "Z:/Engineering/Projects/KiCAD Libraries/Switching/ul_AP2161SG-13/KiCAD/2021-10-18_16-10-58/footprints.pretty")(options "")(descr ""))
+)
