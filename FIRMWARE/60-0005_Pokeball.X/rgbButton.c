@@ -26,27 +26,23 @@ void rgbButtonHandler(){
         updateColor();
     }
     
-    //handle debounce and state changes.
-//    if(cButton.ticks.debounceTicks >= 1){
-//        cButton.ticks.debounceTicks = 0;
-        cButton.buttonStates.lastIsPressed = cButton.buttonStates.isPressed;
-        
-        debounceBuffer = (debounceBuffer << 1) | !CB_GetValue() | 0xFFFE;
-        
-        if(debounceBuffer == 0xffff){
-            cButton.buttonStates.isPressed = true;
-        }
-        else{
-            cButton.buttonStates.isPressed = false;
-        }
-        if(cButton.buttonStates.isPressed != cButton.buttonStates.lastIsPressed){
-            cButton.buttonStates.changing = true;
-            cButton.ticks.buttonPressedTicks = 0;
-        }
-        else{
-            cButton.buttonStates.changing = false;
-        }
-//    }
+    cButton.buttonStates.lastIsPressed = cButton.buttonStates.isPressed;
+
+    debounceBuffer = (debounceBuffer << 1) | !CB_GetValue() | 0xFFFE;
+
+    if(debounceBuffer == 0xffff){
+        cButton.buttonStates.isPressed = true;
+    }
+    else{
+        cButton.buttonStates.isPressed = false;
+    }
+    if(cButton.buttonStates.isPressed != cButton.buttonStates.lastIsPressed){
+        cButton.buttonStates.changing = true;
+        cButton.ticks.buttonPressedTicks = 0;
+    }
+    else{
+        cButton.buttonStates.changing = false;
+    }
     
 }
 
@@ -109,6 +105,19 @@ void setColor(uint8_t red,uint8_t green, uint8_t blue){
     cButton.color.red = red;
     cButton.color.green = green;
     cButton.color.blue = blue;
+}
+
+/****************************************************************************
+ * @Function: setColorFromHex
+ * @Description: 
+ * @Param: 
+ * @Returns:
+ *
+ **************************************************************************/
+void setColorFromHex(uint32_t color){
+    cButton.color.red = color >> 16;
+    cButton.color.green = color >> 8;
+    cButton.color.blue = color;
 }
 
 /****************************************************************************

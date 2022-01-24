@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-#define VERSION             	("0.0.0.4")
+#define VERSION             	("0.0.0.5")
 //#define MAJERVERSION        	(0)
 //#define STABLEVERSION       	(0)
 //#define RELEASEVERSION      	(0)

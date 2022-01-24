@@ -12,6 +12,12 @@
 extern "C" {
 #endif
 
+    #define RED                                                         0xFF0000
+    #define ORANGE                                                      0xFF7C00
+    #define YELLOW                                                      0xFFFF00
+    #define GREEN                                                       0x00FF00
+    #define WHITE                                                       0xFFFFFF
+    
     extern void appInit();
     extern void appHandler();
     extern void msTick();
